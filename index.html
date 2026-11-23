@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070b16">
+<meta name="color-scheme" content="dark light">
+<meta name="format-detection" content="telephone=no">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src data: blob:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>EMIRHAN · Feedback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--bgA:rgba(7,11,22,.8);--gold14:rgba(212,175,97,.14);--gold16:rgba(212,175,97,.16);--gold28:rgba(212,175,97,.3);--gold45:rgba(212,175,97,.45);--gold55:rgba(212,175,97,.55);--goldDeep:#94793f;--cardHi:#1a2030;--accDeep:#1c6b5c;--acc18:rgba(47,179,154,.18);--bg:#070b16;--card:#0e1424;--gold:#d4af61;--gold2:#f6e3a8;--acc:#2fb39a;--ink:#f4ecd8;--muted:#a59c87;--line:rgba(212,175,97,.28);--field:rgba(0,0,0,.28);--starOff:rgba(255,255,255,.14);--shadow:0 30px 80px rgba(0,0,0,.45);--wall:none;--spd:1;--serif:'Playfair Display',Georgia,'Times New Roman',serif;--sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans','PingFang SC','Hiragino Sans',sans-serif;--r:20px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--bg)}
+body{margin:0;min-height:100vh;min-height:100dvh;background:var(--wall),var(--bg);background-attachment:fixed;color:var(--ink);font-family:var(--sans);line-height:1.5;overflow-x:hidden;transition:background-color .6s,color .4s}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
+.hidden{display:none!important}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.blob{position:fixed;width:70vmax;height:70vmax;border-radius:50%;pointer-events:none;z-index:0;opacity:.18;filter:blur(40px);animation:drift calc(28s/var(--spd)) ease-in-out infinite alternate}
+.blob.b1{background:radial-gradient(circle,var(--gold),transparent 62%);top:-35vmax;left:-30vmax}
+.blob.b2{background:radial-gradient(circle,var(--acc),transparent 62%);bottom:-38vmax;right:-32vmax;animation-duration:calc(36s/var(--spd))}
+body.noblobs .blob{display:none}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.08)}}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:max(10px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 10px max(16px,env(safe-area-inset-left));background:var(--bgA);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--serif);color:var(--gold);letter-spacing:.32em;font-size:19px;line-height:1.05;user-select:none;-webkit-user-select:none;cursor:default}
+.brand small{display:block;font-family:var(--sans);font-size:8.5px;letter-spacing:.62em;color:var(--muted);margin-top:4px}
+.tools{display:flex;gap:8px;align-items:center}
+.ibtn{height:42px;min-width:42px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--field);display:inline-flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:600;color:var(--gold2);transition:transform .2s,border-color .2s}
+.ibtn:active{transform:scale(.94)}.ibtn .fl{font-size:18px;line-height:1}
+main{position:relative;z-index:1;width:100%;max-width:560px;margin:0 auto;padding:22px max(16px,env(safe-area-inset-left)) 40px}
+.greet{display:flex;align-items:center;gap:12px;margin:0 0 18px;padding:12px 16px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(110deg,var(--gold14),transparent 60%),var(--field);font-size:14px;color:var(--gold2);animation:rise .8s both}
+.greet b{font-size:24px}
+.greet span{background:linear-gradient(90deg,var(--gold2),var(--gold),var(--gold2));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine calc(6s/var(--spd)) linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+.hero{text-align:center;padding:18px 0 6px}
+.kicker{font-size:12px;letter-spacing:.42em;font-weight:700;color:var(--gold);text-transform:uppercase}
+.logo{font-family:var(--serif);font-weight:700;font-size:clamp(40px,12.5vw,66px);letter-spacing:.16em;margin:6px 0 4px;padding-left:.16em;line-height:1.1;background:linear-gradient(180deg,var(--gold2) 0%,var(--gold) 55%,var(--goldDeep) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;-webkit-user-select:none;filter:drop-shadow(0 6px 22px var(--gold28))}
+.card{position:relative;margin-top:18px;padding:28px 22px;border-radius:var(--r);background:linear-gradient(160deg,var(--cardHi),var(--card));border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+.card::before,.card::after{content:'';position:absolute;width:34px;height:34px;border:2px solid var(--gold);pointer-events:none;opacity:.75}
+.card::before{top:10px;left:10px;border-right:0;border-bottom:0;border-top-left-radius:8px}
+.card::after{bottom:10px;right:10px;border-left:0;border-top:0;border-bottom-right-radius:8px}
+.step{display:none}.step.on{display:block;animation:rise .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;line-height:1.2}
+.q{font-size:clamp(22px,6.2vw,30px);text-align:center;font-style:italic;color:var(--gold2)}
+.hint{text-align:center;color:var(--muted);font-size:14px;margin-top:6px}
+.stars{display:flex;justify-content:center;gap:clamp(4px,2vw,12px);margin:26px 0 10px}
+.star{width:clamp(46px,14vw,60px);height:clamp(46px,14vw,60px);padding:4px;border-radius:14px;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.star svg{width:100%;height:100%;display:block;overflow:visible}
+.star path{fill:var(--starOff);stroke:var(--gold45);stroke-width:1;transition:fill .25s,filter .25s}
+.star.on path{fill:url(#gGold);stroke:var(--goldDeep);filter:drop-shadow(0 0 8px var(--gold55))}
+.star.on{animation:pop .45s cubic-bezier(.3,1.6,.5,1) both}
+.star:hover{transform:translateY(-3px) scale(1.06)}
+@keyframes pop{0%{transform:scale(.7)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+.phrase{min-height:56px;text-align:center;font-family:var(--serif);font-size:clamp(18px,5vw,22px);font-weight:600;color:var(--gold);padding:4px 6px;transition:opacity .3s}
+.btn{position:relative;overflow:hidden;width:100%;min-height:56px;padding:14px 20px;border-radius:16px;font-weight:700;font-size:16px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .18s,box-shadow .3s,opacity .3s}
+.btn:active{transform:scale(.97)}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.btn-gold{background:linear-gradient(135deg,var(--gold2) -20%,var(--gold) 45%,var(--goldDeep));color:#1d1406;box-shadow:0 14px 34px var(--gold28)}
+body.glare .btn-gold::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:glare calc(4.5s/var(--spd)) ease-in-out infinite}
+@keyframes glare{0%,55%{left:-60%}100%{left:130%}}
+.btn-line{border:1.5px solid var(--gold);color:var(--gold2);background:transparent}
+.btn-ghost{color:var(--muted);font-weight:600;min-height:44px;font-size:14px}
+.btn-g{background:#fff;color:#1f2433;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.btn-y{background:linear-gradient(135deg,#ff6a3d,#d9381e);color:#fff;box-shadow:0 10px 30px rgba(217,56,30,.3)}
+.btn-both{background:linear-gradient(135deg,var(--acc),var(--accDeep));color:#fff}
+.stack{display:grid;gap:12px;margin-top:18px}
+.lbl{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold);margin:20px 0 10px}
+textarea,input[type=text],input[type=password],input[type=search],input[type=url],select{width:100%;border-radius:14px;border:1px solid var(--line);background:var(--field);padding:14px 16px;font-size:16px;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;resize:vertical}
+textarea{min-height:120px}
+textarea:focus,input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 4px var(--gold16)}
+::placeholder{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--field);font-size:14px;font-weight:600;color:var(--ink);transition:all .2s}
+.chip.on{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1d1406;border-color:transparent;box-shadow:0 6px 16px var(--gold28)}
+.check{display:flex;gap:12px;align-items:flex-start;margin-top:18px;cursor:pointer}
+.check input{position:absolute;opacity:0;pointer-events:none}
+.box{flex:none;width:26px;height:26px;border-radius:8px;border:1.5px solid var(--gold);display:grid;place-items:center;transition:background .2s}
+.box::after{content:'';width:7px;height:13px;border:solid #1d1406;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) scale(0);margin-top:-3px;transition:transform .2s}
+.check input:checked+.box{background:var(--gold)}
+.check input:checked+.box::after{transform:rotate(45deg) scale(1)}
+.check b{display:block;font-size:15px}.check small{color:var(--muted);font-size:13px}
+.seg{display:grid;grid-template-columns:1fr 1fr;padding:5px;border-radius:16px;background:var(--field);border:1px solid var(--line)}
+.seg button{min-height:46px;border-radius:12px;font-weight:700;color:var(--muted);transition:all .25s}
+.seg button.on{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1d1406;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.note{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin-top:14px}
+.res-stars{display:flex;justify-content:center;gap:8px;margin:6px 0 16px}
+.res-stars svg{width:42px;height:42px;opacity:0;animation:pop .5s cubic-bezier(.3,1.6,.5,1) forwards}
+.res-stars path{fill:url(#gGold);filter:drop-shadow(0 0 10px var(--gold55))}
+.res-stars .off path{fill:var(--starOff);filter:none}
+.res-t{text-align:center;font-size:clamp(24px,7vw,32px)}
+.res-s{text-align:center;font-family:var(--serif);font-style:italic;color:var(--gold);margin:8px 0 0;font-size:17px}
+.preview{margin-top:18px;padding:16px;border-radius:16px;border:1px dashed var(--line);background:var(--field)}
+.preview .pv-h{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.preview .pv-st{color:var(--gold);letter-spacing:2px;font-size:16px}
+.preview p{margin:0;white-space:pre-wrap;word-break:break-word;font-size:15px}
+.preview .pv-n{margin-top:8px;font-weight:700;color:var(--gold2);font-size:14px}
+.small{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+.foot{position:relative;z-index:1;text-align:center;font-size:11px;letter-spacing:.3em;color:var(--muted);padding:0 16px 28px;text-transform:uppercase}
+/* modals */
+.modal{position:fixed;inset:0;z-index:60;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:12px}
+.modal.on{display:flex;animation:fade .25s both}
+@keyframes fade{from{opacity:0}}
+.sheet{width:100%;max-width:480px;max-height:90dvh;overflow:auto;padding:24px 20px calc(20px + env(safe-area-inset-bottom));border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@media(min-width:640px){.modal{align-items:center}}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.sheet h3{font-size:22px;color:var(--gold2);text-align:center;margin-bottom:6px}
+.sheet .x{float:right;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);color:var(--muted);font-size:18px;margin:-8px -6px 0 0}
+.langs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.langs button{display:flex;align-items:center;gap:10px;padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--field);font-weight:600;text-align:left}
+.langs button.on{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold16)}
+.langs .fl{font-size:24px}
+.err{color:#ff8a7a;font-size:13px;min-height:20px;text-align:center;margin-top:8px}
+.link{color:var(--gold);text-decoration:underline;text-underline-offset:3px;font-size:14px;display:block;margin:12px auto 0}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,30px);z-index:90;max-width:min(92vw,440px);padding:13px 18px;border-radius:14px;background:var(--card);color:var(--gold2);border:1px solid var(--gold);box-shadow:var(--shadow);font-size:14px;font-weight:600;text-align:center;opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.2,.8,.2,1)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+/* admin */
+#admin{position:fixed;inset:0;z-index:50;display:none;overflow:auto;background:var(--wall),var(--bg)}
+#admin.on{display:block;animation:fade .25s both}
+.ad-wrap{max-width:980px;margin:0 auto;padding:max(14px,env(safe-area-inset-top)) 16px 60px}
+.ad-head{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;padding:10px 0 14px;background:linear-gradient(var(--bg) 70%,transparent)}
+.ad-head h2{flex:1;font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.role{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--gold);color:#1d1406}
+.role.mst{background:linear-gradient(135deg,#b48cff,#6b4fd8);color:#fff}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px}
+.tab{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--field);font-weight:700;font-size:14px;color:var(--ink)}
+.tab.on{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1d1406;border-color:transparent}
+.pane{display:none}.pane.on{display:block;animation:rise .35s both}
+.panel{padding:20px;border-radius:18px;background:var(--card);border:1px solid var(--line);margin-bottom:14px}
+.panel h3{font-size:20px;color:var(--gold2);margin-bottom:10px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.kpi{padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.kpi small{color:var(--muted);font-size:12px}.kpi b{display:block;font-family:var(--serif);font-size:30px;color:var(--gold2);margin-top:4px}
+.bar{display:grid;grid-template-columns:44px 1fr 40px;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.bar i{display:block;height:10px;border-radius:99px;background:var(--field);overflow:hidden}
+.bar i em{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:99px;transition:width .8s}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.row>*{flex:1 1 180px}
+.rv{padding:16px;border-radius:16px;background:var(--field);border:1px solid var(--line);margin-bottom:10px}
+.rv.done{opacity:.6}
+.rv-h{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.rv-h .st{color:var(--gold);letter-spacing:2px;font-size:16px}
+.rv p{margin:8px 0;white-space:pre-wrap;word-break:break-word}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line);margin:2px 4px 2px 0}
+.badge.mgr{background:rgba(255,120,100,.14);color:#ff9d8c}
+.badge.pub{background:var(--acc18);color:var(--acc)}
+.mini{padding:8px 12px;border-radius:10px;border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--gold2)}
+.mini.red{color:#ff9d8c;border-color:rgba(255,120,100,.4)}
+.sw{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.sw:last-child{border-bottom:0}
+.tg{position:relative;flex:none;width:52px;height:30px}
+.tg input{opacity:0;width:0;height:0;position:absolute}
+.tg span{position:absolute;inset:0;border-radius:99px;background:var(--field);border:1px solid var(--line);transition:.25s}
+.tg span::before{content:'';position:absolute;width:22px;height:22px;left:3px;top:3px;border-radius:50%;background:var(--muted);transition:.25s}
+.tg input:checked+span{background:var(--gold)}
+.tg input:checked+span::before{transform:translateX(22px);background:#1d1406}
+.starpick{display:flex;gap:8px;flex-wrap:wrap}
+.starpick button{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--field);font-weight:700;color:var(--muted)}
+.starpick button.on{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1d1406;border-color:transparent}
+.colors{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.colors label{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.colors input{width:100%;height:52px;margin-top:6px;border-radius:12px;border:1px solid var(--line);background:var(--field);padding:4px;cursor:pointer}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin:10px 0 20px}
+.tpl{position:relative;padding:16px 10px 12px;border-radius:16px;border:1px solid var(--line);text-align:center;font-size:13px;font-weight:700;color:#fff;overflow:hidden;min-height:104px;transition:transform .2s}
+.tpl:active{transform:scale(.96)}
+.tpl .e{display:block;font-size:30px;margin-bottom:6px}
+.tpl.on{outline:3px solid var(--gold);outline-offset:2px}
+.tpl .dots{display:flex;justify-content:center;gap:4px;margin-top:8px}
+.tpl .dots i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(255,255,255,.4)}
+.carousel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.wcard{flex:0 0 min(62%,220px);scroll-snap-align:center;aspect-ratio:3/4;border-radius:20px;border:1px solid var(--line);display:flex;align-items:flex-end;padding:14px;font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.wcard.on{outline:3px solid var(--gold);outline-offset:2px}
+.cnav{display:flex;gap:10px;justify-content:center}
+.tedit{display:grid;gap:12px;margin-top:12px}
+.tedit label{display:block;font-size:12px;color:var(--muted)}
+.tedit label code{color:var(--gold);font-size:11px;margin-right:6px}
+.tedit textarea{min-height:56px;margin-top:4px;font-size:15px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:12px 0 12px 48px;border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1d1406}
+.mzone{border-color:#8b6fe0;background:linear-gradient(160deg,rgba(139,111,224,.12),var(--card))}
+body.reduce *,body.reduce *::before,body.reduce *::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3c4"/><stop offset=".45" stop-color="#f2c75c"/><stop offset="1" stop-color="#b8862b"/></linearGradient></defs></svg>
+<div class="blob b1"></div><div class="blob b2"></div><canvas id="fx"></canvas>
+<header class="top">
+  <div class="brand" id="brand"><span id="brandName">EMIRHAN</span><small id="brandSub">FEEDBACK</small></div>
+  <div class="tools">
+    <button class="ibtn" id="langBtn" data-ta="lang"><span class="fl" id="langFlag">🇷🇺</span><span id="langCode">RU</span></button>
+    <button class="ibtn" id="themeBtn" data-ta="theme">☀️</button>
+  </div>
+</header>
+<main>
+  <div class="greet hidden" id="greet"><b id="greetE"></b><span id="greetT"></span></div>
+  <section class="hero">
+    <div class="kicker" data-t="kicker"></div>
+    <div class="logo" id="logo">EMIRHAN</div>
+  </section>
+  <div class="card">
+    <section class="step on" id="s1">
+      <h1 class="q" data-t="title"></h1>
+      <div class="hint" data-t="hint"></div>
+      <div class="stars" id="stars" role="radiogroup"></div>
+      <div class="phrase" id="phrase" aria-live="polite"></div>
+      <div class="stack"><button class="btn btn-gold" id="toS2" disabled><span data-t="next"></span> →</button></div>
+    </section>
+    <section class="step" id="s2">
+      <h2 class="q" data-t="s2title"></h2>
+      <div class="hint" data-t="s2sub"></div>
+      <div class="res-stars" id="miniStars" style="margin-top:14px"></div>
+      <span class="lbl" data-t="tagsLbl"></span>
+      <div class="chips" id="tags"></div>
+      <span class="lbl" style="margin-top:18px">✍️</span>
+      <textarea id="comment" maxlength="1200" data-tp="commentPh"></textarea>
+      <label class="check"><input type="checkbox" id="mgrChk"><span class="box"></span><span><b data-t="mgrChk"></b><small data-t="mgrSub"></small></span></label>
+      <input type="text" id="contact" class="hidden" maxlength="80" data-tp="contactPh" style="margin-top:12px" autocomplete="tel">
+      <span class="lbl" data-t="howLbl"></span>
+      <div class="seg" id="seg"><button data-v="pub" class="on" data-t="pub"></button><button data-v="anon" data-t="anon"></button></div>
+      <input type="text" id="gname" maxlength="60" data-tp="namePh" style="margin-top:12px" autocomplete="given-name">
+      <div class="note">🛡️ <span data-t="privacy"></span></div>
+      <div class="stack"><button class="btn btn-gold" id="send"><span data-t="send"></span> ›</button><button class="btn btn-ghost" id="back1">← <span data-t="back"></span></button></div>
+    </section>
+    <section class="step" id="s3">
+      <div class="res-stars" id="resStars"></div>
+      <h2 class="res-t" id="resT"></h2>
+      <p class="res-s" id="resS"></p>
+      <div id="pubBox" class="hidden">
+        <div class="preview" id="preview"></div>
+        <div class="stack" id="platBtns"></div>
+        <p class="small" id="howTxt"></p>
+        <button class="btn btn-ghost" id="noPub" data-t="noPub"></button>
+      </div>
+      <div class="stack"><button class="btn btn-line" id="again" data-t="again"></button></div>
+    </section>
+  </div>
+</main>
+<div class="foot"><span id="footBrand">EMIRHAN</span> · <span data-t="bye"></span></div>
+
+<div class="modal" id="mLang"><div class="sheet"><button class="x" data-close>✕</button><h3 data-t="lang"></h3><div class="langs" id="langList"></div></div></div>
+<div class="modal" id="mPub"><div class="sheet"><button class="x" data-close>✕</button><h3 data-t="pickTitle"></h3><div class="preview" id="preview2"></div><div class="stack" id="platBtns2"></div><p class="small" id="howTxt2"></p></div></div>
+<div class="modal" id="mLogin"><div class="sheet"><button class="x" data-close>✕</button><h3 data-t="panel"></h3><span class="lbl" data-t="pass"></span><input type="password" id="pw" maxlength="64" autocomplete="current-password"><div class="err" id="pwErr"></div><div class="stack"><button class="btn btn-gold" id="pwGo" data-t="enter"></button></div><button class="link" id="forgotBtn" data-t="forgot"></button></div></div>
+<div class="modal" id="mRec"><div class="sheet"><button class="x" data-close>✕</button><h3 data-t="recTitle"></h3><p class="small" data-t="recSub"></p><span class="lbl" data-t="recCode"></span><input type="password" id="recCode" maxlength="64" autocomplete="off"><span class="lbl" data-t="newPass"></span><input type="text" id="recNew" maxlength="64" autocomplete="new-password"><div class="err" id="recErr"></div><div class="stack"><button class="btn btn-gold" id="recGo" data-t="save"></button></div></div></div>
+
+<div id="admin">
+  <div class="ad-wrap">
+    <div class="ad-head"><h2>⚙️ <span data-t="panel"></span></h2><span class="role" id="roleBadge"></span><button class="ibtn" id="adLang"><span class="fl" id="adFlag"></span></button><button class="ibtn" id="adTheme">☀️</button><button class="ibtn" id="adClose">✕ <span data-t="close"></span></button></div>
+    <nav class="tabs" id="tabs"></nav>
+    <div id="panes"></div>
+  </div>
+</div>
+<input type="file" id="fileIn" accept="application/json,.json" class="hidden">
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const I18N={
+ru:{lname:'Русский',kicker:'QR-ОТЗЫВЫ',title:'Оцените, пожалуйста, наше заведение',hint:'Нажмите на звёзды',next:'Далее',back:'Назад',
+r1:'Простите нас — мы обязательно всё исправим',r2:'Мы услышали вас и станем внимательнее',r3:'Ценим ваше мнение — сделаем ещё лучше',r4:'Рады, что вам понравилось!',r5:'Великолепно! Вы делаете наш день',
+s2title:'Расскажите подробнее',s2sub:'Необязательно, но каждое слово помогает нам расти',tagsLbl:'Что запомнилось?',tag1:'Кухня',tag2:'Сервис',tag3:'Атмосфера',tag4:'Чистота',tag5:'Скорость',tag6:'Цена и качество',commentPh:'Ваши впечатления, пожелания или рекомендации…',mgrChk:'Что-то не понравилось?',mgrSub:'Напишите напрямую руководству — мы исправим.',contactPh:'Телефон или Telegram (по желанию)',howLbl:'Как подписать отзыв?',pub:'Публично',anon:'Анонимно',namePh:'Ваше имя',privacy:'Ваш отзыв защищён и используется только для улучшения сервиса',send:'Отправить отзыв',
+res1:'Спасибо, что сказали нам',res2:'Спасибо за ваш отзыв',res3:'Спасибо, что помогаете нам расти',res4:'Рады вашему визиту!',res5:'Очень приятно это слышать!',
+subPub:'Поделитесь впечатлением с другими гостями — это займёт 20 секунд',subMgr:'Ваш отзыв уже у руководства. Мы внимательно разберёмся и станем лучше.',previewLbl:'Ваш отзыв готов',google:'Опубликовать в Google',yandex:'Опубликовать в Яндекс',both:'Открыть обе площадки',copy:'Скопировать текст',copied:'Текст скопирован — вставьте его в форму',noPub:'Я не хочу публиковать',how:'Текст отзыва уже скопирован. На площадке поставьте {n}★, вставьте текст и нажмите «Опубликовать».',pickTitle:'Где опубликовать отзыв?',nextPlat:'Отлично! Теперь вторая площадка:',again:'Оставить ещё один отзыв',bye:'Спасибо! Ждём вас снова',anonName:'Гость',needStar:'Сначала выберите оценку',liked:'Понравилось',
+panel:'Панель управления',pass:'Пароль',enter:'Войти',cancel:'Отмена',wrong:'Неверный пароль',locked:'Слишком много попыток. Подождите {s} с.',forgot:'Восстановить пароль',recTitle:'Восстановление пароля',recSub:'Введите код владельца и задайте новый пароль менеджера',recCode:'Код владельца',newPass:'Новый пароль (мин. 6 символов)',recOk:'Пароль менеджера обновлён',close:'Закрыть',master:'Мастер',manager:'Менеджер',logout:'Выйти',save:'Сохранить',saved:'Сохранено',confirm:'Вы уверены?',short:'Пароль слишком короткий',
+tDash:'Дашборд',tReq:'Заявки',tAuto:'Автоматизация',tColors:'Цвета',tTexts:'Тексты',tFx:'Эффекты',tTpl:'Шаблоны',tWall:'Обои',tHelp:'Обучение',tSys:'Система',
+avg:'Средняя оценка',total:'Отзывов собрано',conv:'Переходы на площадки',week:'За 7 дней',dist:'Распределение оценок',toMgr:'Руководству',toPub:'К публикации',
+search:'Поиск по имени, тексту, контакту…',fAll:'Все',fContact:'С контактом',resolved:'Решено',markResolved:'Отметить решённым',del:'Удалить',csv:'Экспорт CSV',clearAll:'Удалить все отзывы',empty:'Пока нет отзывов',clicked:'Переход',
+aOn:'Автоматизация включена',aStars:'При каких оценках предлагать публикацию',aPlat:'Площадки',gId:'Google: Place ID или полная ссылка',yId:'Яндекс: ID организации или полная ссылка',aBoth:'Показывать кнопку «обе площадки»',aCopy:'Автоматически копировать текст отзыва',aPopup:'Сразу показывать окно выбора площадки',aTest:'Проверить',aNote:'Google и Яндекс не разрешают сторонним сайтам публиковать отзывы от имени гостя — это защита от накруток. Поэтому мы делаем максимум: сразу открываем форму отзыва нужной площадки и заранее копируем текст гостя. Остаётся вставить и нажать «Опубликовать».',aActive:'Включено для оценок:',aOff:'Автоматизация выключена — все отзывы идут руководству',star:'звёзды',invalidUrl:'Недопустимая ссылка',notSet:'Не указано — откроется поиск по названию',
+cBg:'Фон',cCard:'Карточки',cGold:'Золото',cGold2:'Светлое золото',cAccent:'Акцент',cInk:'Текст',cMuted:'Вторичный текст',reset:'Сбросить',cGuard:'Защита: нечитаемые сочетания цветов восстанавливаются автоматически. Дневной режим строится из этих цветов сам.',
+tLang:'Язык для редактирования',tFilter:'Фильтр по ключу или тексту',tResetLang:'Сбросить тексты языка',tHint:'Изменения применяются сразу и сохраняются.',
+fxPart:'Частицы на фоне',pNone:'Нет',pDust:'Золотая пыль',pSpark:'Искры',pSnow:'Снег',pPetal:'Лепестки',pStars:'Звёзды',fxBlobs:'Светящиеся пятна',fxGlare:'Блик на кнопках',fxConf:'Конфетти при 5★',fxSound:'Звуки',fxSpeed:'Скорость анимации',fxReduce:'Минимум анимации (слабые телефоны)',
+grpHol:'Праздники Узбекистана и мира',grpSea:'Времена года',grpMon:'Каждый месяц года',grpLux:'Люкс-коллекция',tplAuto:'Автоматически по календарю',tplNone:'Без шаблона',tplNote:'Шаблон меняет цвета, частицы и приветствие. Работает в ночном и дневном режиме (днём — светлая версия палитры).',applied:'Шаблон применён',
+h1:'Новый год',h2:'День святого Валентина',h3:'8 Марта',h4:'Навруз',h5:'9 Мая · День памяти',h6:'День Независимости',h7:'День учителя',h8:'День Конституции',h9:'Рамазан Хайит',h10:'Курбан Хайит',h11:'Свадьба',h12:'День рождения',
+g1:'С Новым годом! Пусть он будет щедрым и вкусным',g2:'С Днём влюблённых! Любовь — лучшая приправа',g3:'С 8 Марта! Весны, цветов и вдохновения',g4:'Navroʻz muborak! С праздником весны и обновления',g5:'С Днём памяти и почестей. Мира каждому дому',g6:'С Днём Независимости Узбекистана!',g7:'С Днём учителя и наставника! Спасибо за знания',g8:'С Днём Конституции! Мира и процветания',g9:'Рамазон хайити муборак! Благословенных дней',g10:'Қурбон ҳайити муборак! Мира и достатка вашему дому',g11:'Поздравляем молодожёнов! Счастья и любви',g12:'С днём рождения! Сегодня всё для вас',
+se1:'Весна',se2:'Лето',se3:'Осень',se4:'Зима',
+l1:'Чернила и фиалка',l2:'Черника и лён',l3:'Кардамон и жемчуг',l4:'Нефть и песок',l5:'Аметист и серебро',l6:'Бордо и сталь',
+wNote:'18 палитр. Листайте карусель и нажмите, чтобы применить.',wNone:'Без обоев',wPal:'Палитра',
+hTitle:'Как пользоваться',hs1:'Гость сканирует QR-код, выбирает язык флажком и ставит оценку.',hs2:'Пишет комментарий, отмечает, что понравилось, и выбирает: публично или анонимно.',hs3:'Если оценка входит в настройки автоматизации, появляется окно Яндекс / Google с готовым текстом.',hs4:'Остальные отзывы приходят во вкладку «Заявки» — только руководству.',hs5:'Вход в панель: 5 быстрых нажатий по логотипу, затем пароль.',hs6:'Перед обновлением файла сделайте «Экспорт JSON», затем «Импорт JSON» в новом файле — данные сохранятся.',
+sBrand:'Название',sSub:'Подпись под логотипом',sMgrPass:'Новый пароль менеджера',sExport:'Экспорт JSON',sImport:'Импорт JSON',sImported:'Импорт выполнен, отзывы сохранены',sBad:'Файл повреждён или не подходит',sResetSet:'Сбросить настройки (отзывы сохранятся)',sWipe:'Удалить все данные',sMaster:'Зона мастера',sMasterPass:'Новый мастер-пароль',sLangDef:'Язык по умолчанию',sData:'Данные',sSecurity:'Безопасность',theme:'Сменить тему',lang:'Язык'},
+en:{lname:'English',kicker:'QR FEEDBACK',title:'Please rate our restaurant',hint:'Tap the stars',next:'Next',back:'Back',
+r1:'We’re sorry — we will make it right',r2:'We hear you and will be more attentive',r3:'We value your opinion — we’ll make it even better',r4:'So glad you enjoyed it!',r5:'Wonderful! You made our day',
+s2title:'Tell us more',s2sub:'Optional, but every word helps us grow',tagsLbl:'What stood out?',tag1:'Cuisine',tag2:'Service',tag3:'Atmosphere',tag4:'Cleanliness',tag5:'Speed',tag6:'Value for money',commentPh:'Your impressions, wishes or suggestions…',mgrChk:'Something you didn’t like?',mgrSub:'Write directly to the management — we will fix it.',contactPh:'Phone or Telegram (optional)',howLbl:'How should we sign your review?',pub:'Public',anon:'Anonymous',namePh:'Your name',privacy:'Your review is protected and used only to improve our service',send:'Send review',
+res1:'Thank you for telling us',res2:'Thank you for your feedback',res3:'Thank you for helping us grow',res4:'We’re glad you visited!',res5:'So wonderful to hear!',
+subPub:'Share your experience with other guests — it takes 20 seconds',subMgr:'Your feedback is already with the management. We will look into it carefully and improve.',previewLbl:'Your review is ready',google:'Post on Google',yandex:'Post on Yandex',both:'Open both platforms',copy:'Copy text',copied:'Text copied — paste it into the form',noPub:'I don’t want to post',how:'Your review text is already copied. On the platform, choose {n}★, paste the text and tap “Post”.',pickTitle:'Where would you like to post?',nextPlat:'Great! Now the second platform:',again:'Leave another review',bye:'Thank you! We look forward to seeing you again',anonName:'Guest',needStar:'Please choose a rating first',liked:'Liked',
+panel:'Control panel',pass:'Password',enter:'Log in',cancel:'Cancel',wrong:'Wrong password',locked:'Too many attempts. Wait {s} s.',forgot:'Recover password',recTitle:'Password recovery',recSub:'Enter the owner code and set a new manager password',recCode:'Owner code',newPass:'New password (min. 6 characters)',recOk:'Manager password updated',close:'Close',master:'Master',manager:'Manager',logout:'Log out',save:'Save',saved:'Saved',confirm:'Are you sure?',short:'Password is too short',
+tDash:'Dashboard',tReq:'Requests',tAuto:'Automation',tColors:'Colors',tTexts:'Texts',tFx:'Effects',tTpl:'Templates',tWall:'Wallpapers',tHelp:'Training',tSys:'System',
+avg:'Average rating',total:'Reviews collected',conv:'Platform click-through',week:'Last 7 days',dist:'Rating distribution',toMgr:'To management',toPub:'For publishing',
+search:'Search by name, text, contact…',fAll:'All',fContact:'With contact',resolved:'Resolved',markResolved:'Mark resolved',del:'Delete',csv:'Export CSV',clearAll:'Delete all reviews',empty:'No reviews yet',clicked:'Opened',
+aOn:'Automation enabled',aStars:'Ratings that trigger the publishing offer',aPlat:'Platforms',gId:'Google: Place ID or full link',yId:'Yandex: organization ID or full link',aBoth:'Show the “both platforms” button',aCopy:'Copy the review text automatically',aPopup:'Show the platform window immediately',aTest:'Test',aNote:'Google and Yandex do not allow third-party sites to post reviews on a guest’s behalf — this protects against fake reviews. So we do the maximum: we open the platform’s review form directly and copy the guest’s text in advance. The guest only pastes and taps “Post”.',aActive:'Enabled for ratings:',aOff:'Automation is off — all reviews go to the management',star:'stars',invalidUrl:'Invalid link',notSet:'Not set — a search by name will open',
+cBg:'Background',cCard:'Cards',cGold:'Gold',cGold2:'Light gold',cAccent:'Accent',cInk:'Text',cMuted:'Secondary text',reset:'Reset',cGuard:'Protection: unreadable color combinations are restored automatically. Day mode is generated from these colors.',
+tLang:'Language to edit',tFilter:'Filter by key or text',tResetLang:'Reset this language',tHint:'Changes apply instantly and are saved.',
+fxPart:'Background particles',pNone:'None',pDust:'Gold dust',pSpark:'Sparks',pSnow:'Snow',pPetal:'Petals',pStars:'Stars',fxBlobs:'Glowing lights',fxGlare:'Button shine',fxConf:'Confetti on 5★',fxSound:'Sounds',fxSpeed:'Animation speed',fxReduce:'Minimal animation (low-end phones)',
+grpHol:'Holidays of Uzbekistan and the world',grpSea:'Seasons',grpMon:'Every month of the year',grpLux:'Luxury collection',tplAuto:'Automatically by calendar',tplNone:'No template',tplNote:'A template changes colors, particles and the greeting. Works in night and day mode (day uses a light version of the palette).',applied:'Template applied',
+h1:'New Year',h2:'Valentine’s Day',h3:'March 8',h4:'Navruz',h5:'May 9 · Day of Remembrance',h6:'Independence Day',h7:'Teachers’ Day',h8:'Constitution Day',h9:'Eid al-Fitr',h10:'Eid al-Adha',h11:'Wedding',h12:'Birthday',
+g1:'Happy New Year! May it be generous and delicious',g2:'Happy Valentine’s Day! Love is the finest spice',g3:'Happy March 8! Spring, flowers and inspiration',g4:'Navroʻz muborak! Happy holiday of spring and renewal',g5:'Day of Remembrance and Honor. Peace to every home',g6:'Happy Independence Day of Uzbekistan!',g7:'Happy Teachers’ Day! Thank you for the knowledge',g8:'Happy Constitution Day! Peace and prosperity',g9:'Eid Mubarak! Blessed days to you',g10:'Eid al-Adha Mubarak! Peace and abundance to your home',g11:'Congratulations to the newlyweds! Love and happiness',g12:'Happy birthday! Today everything is for you',
+se1:'Spring',se2:'Summer',se3:'Autumn',se4:'Winter',
+l1:'Ink & Violet',l2:'Blueberry & Linen',l3:'Cardamom & Pearl',l4:'Petrol & Sand',l5:'Amethyst & Silver',l6:'Bordeaux & Steel',
+wNote:'18 palettes. Swipe the carousel and tap to apply.',wNone:'No wallpaper',wPal:'Palette',
+hTitle:'How to use',hs1:'The guest scans the QR code, picks a language with a flag and gives a rating.',hs2:'They write a comment, mark what they liked and choose public or anonymous.',hs3:'If the rating is enabled in automation, a Yandex / Google window opens with the ready text.',hs4:'Other reviews arrive in the “Requests” tab — for management only.',hs5:'Panel access: tap the logo 5 times quickly, then enter the password.',hs6:'Before updating the file, use “Export JSON”, then “Import JSON” in the new file — all data is kept.',
+sBrand:'Name',sSub:'Caption under the logo',sMgrPass:'New manager password',sExport:'Export JSON',sImport:'Import JSON',sImported:'Import complete, reviews preserved',sBad:'The file is damaged or not compatible',sResetSet:'Reset settings (reviews are kept)',sWipe:'Delete all data',sMaster:'Master zone',sMasterPass:'New master password',sLangDef:'Default language',sData:'Data',sSecurity:'Security',theme:'Toggle theme',lang:'Language'},
+uz:{lname:'Oʻzbekcha',kicker:'QR FIKRLAR',title:'Iltimos, muassasamizni baholang',hint:'Yulduzchalarni bosing',next:'Keyingi',back:'Orqaga',
+r1:'Uzr soʻraymiz — albatta tuzatamiz',r2:'Sizni eshitdik, yanada eʼtiborli boʻlamiz',r3:'Fikringizni qadrlaymiz — yanada yaxshilaymiz',r4:'Sizga yoqqanidan xursandmiz!',r5:'Ajoyib! Kunimizni yoritdingiz',
+s2title:'Batafsilroq aytib bering',s2sub:'Majburiy emas, lekin har bir soʻz bizga oʻsishga yordam beradi',tagsLbl:'Nima esda qoldi?',tag1:'Taomlar',tag2:'Xizmat',tag3:'Muhit',tag4:'Tozalik',tag5:'Tezlik',tag6:'Narx va sifat',commentPh:'Taassurotlaringiz, istak yoki tavsiyalaringiz…',mgrChk:'Biror narsa yoqmadimi?',mgrSub:'Toʻgʻridan-toʻgʻri rahbariyatga yozing — tuzatamiz.',contactPh:'Telefon yoki Telegram (ixtiyoriy)',howLbl:'Fikrni qanday imzolaymiz?',pub:'Ochiq',anon:'Anonim',namePh:'Ismingiz',privacy:'Fikringiz himoyalangan va faqat xizmatni yaxshilash uchun ishlatiladi',send:'Fikrni yuborish',
+res1:'Bizga aytganingiz uchun rahmat',res2:'Fikringiz uchun rahmat',res3:'Oʻsishimizga yordam berganingiz uchun rahmat',res4:'Tashrifingizdan xursandmiz!',res5:'Buni eshitish juda yoqimli!',
+subPub:'Taassurotingizni boshqa mehmonlar bilan baham koʻring — bu 20 soniya oladi',subMgr:'Fikringiz rahbariyatga yetkazildi. Diqqat bilan koʻrib chiqamiz va yaxshilanamiz.',previewLbl:'Fikringiz tayyor',google:'Googleʼda eʼlon qilish',yandex:'Yandexʼda eʼlon qilish',both:'Ikkala platformani ochish',copy:'Matnni nusxalash',copied:'Matn nusxalandi — uni formaga qoʻying',noPub:'Eʼlon qilishni istamayman',how:'Fikr matni allaqachon nusxalandi. Platformada {n}★ tanlang, matnni qoʻying va «Eʼlon qilish»ni bosing.',pickTitle:'Fikrni qayerda eʼlon qilasiz?',nextPlat:'Ajoyib! Endi ikkinchi platforma:',again:'Yana fikr qoldirish',bye:'Rahmat! Sizni yana kutamiz',anonName:'Mehmon',needStar:'Avval bahoni tanlang',liked:'Yoqdi',
+panel:'Boshqaruv paneli',pass:'Parol',enter:'Kirish',cancel:'Bekor qilish',wrong:'Parol notoʻgʻri',locked:'Juda koʻp urinish. {s} soniya kuting.',forgot:'Parolni tiklash',recTitle:'Parolni tiklash',recSub:'Egasining kodini kiriting va menejer uchun yangi parol oʻrnating',recCode:'Egasining kodi',newPass:'Yangi parol (kamida 6 belgi)',recOk:'Menejer paroli yangilandi',close:'Yopish',master:'Master',manager:'Menejer',logout:'Chiqish',save:'Saqlash',saved:'Saqlandi',confirm:'Ishonchingiz komilmi?',short:'Parol juda qisqa',
+tDash:'Dashbord',tReq:'Arizalar',tAuto:'Avtomatlashtirish',tColors:'Ranglar',tTexts:'Matnlar',tFx:'Effektlar',tTpl:'Shablonlar',tWall:'Fon rasmlari',tHelp:'Oʻqitish',tSys:'Tizim',
+avg:'Oʻrtacha baho',total:'Toʻplangan fikrlar',conv:'Platformalarga oʻtishlar',week:'Soʻnggi 7 kun',dist:'Baholar taqsimoti',toMgr:'Rahbariyatga',toPub:'Eʼlon uchun',
+search:'Ism, matn, kontakt boʻyicha qidirish…',fAll:'Barchasi',fContact:'Kontakt bilan',resolved:'Hal qilindi',markResolved:'Hal qilingan deb belgilash',del:'Oʻchirish',csv:'CSV eksport',clearAll:'Barcha fikrlarni oʻchirish',empty:'Hozircha fikrlar yoʻq',clicked:'Oʻtish',
+aOn:'Avtomatlashtirish yoqilgan',aStars:'Qaysi baholarda eʼlon qilish taklif etilsin',aPlat:'Platformalar',gId:'Google: Place ID yoki toʻliq havola',yId:'Yandex: tashkilot ID yoki toʻliq havola',aBoth:'«Ikkala platforma» tugmasini koʻrsatish',aCopy:'Fikr matnini avtomatik nusxalash',aPopup:'Platforma oynasini darhol koʻrsatish',aTest:'Tekshirish',aNote:'Google va Yandex uchinchi tomon saytlariga mehmon nomidan fikr joylashga ruxsat bermaydi — bu soxta fikrlardan himoya. Shuning uchun biz maksimal ishni qilamiz: platformaning fikr formasini darhol ochamiz va mehmon matnini oldindan nusxalaymiz. Mehmonga faqat qoʻyish va «Eʼlon qilish»ni bosish qoladi.',aActive:'Quyidagi baholar uchun yoqilgan:',aOff:'Avtomatlashtirish oʻchirilgan — barcha fikrlar rahbariyatga boradi',star:'yulduz',invalidUrl:'Notoʻgʻri havola',notSet:'Koʻrsatilmagan — nom boʻyicha qidiruv ochiladi',
+cBg:'Fon',cCard:'Kartochkalar',cGold:'Oltin',cGold2:'Ochiq oltin',cAccent:'Aksent',cInk:'Matn',cMuted:'Ikkinchi darajali matn',reset:'Tiklash',cGuard:'Himoya: oʻqib boʻlmaydigan rang birikmalari avtomatik tiklanadi. Kunduzgi rejim shu ranglardan avtomatik yaratiladi.',
+tLang:'Tahrirlash tili',tFilter:'Kalit yoki matn boʻyicha filtr',tResetLang:'Til matnlarini tiklash',tHint:'Oʻzgarishlar darhol qoʻllanadi va saqlanadi.',
+fxPart:'Fondagi zarrachalar',pNone:'Yoʻq',pDust:'Oltin chang',pSpark:'Uchqunlar',pSnow:'Qor',pPetal:'Gulbarglar',pStars:'Yulduzlar',fxBlobs:'Yorqin dogʻlar',fxGlare:'Tugmalarda yaltirash',fxConf:'5★ da konfetti',fxSound:'Ovozlar',fxSpeed:'Animatsiya tezligi',fxReduce:'Minimal animatsiya (kuchsiz telefonlar)',
+grpHol:'Oʻzbekiston va dunyo bayramlari',grpSea:'Yil fasllari',grpMon:'Yilning har bir oyi',grpLux:'Lyuks toʻplam',tplAuto:'Taqvim boʻyicha avtomatik',tplNone:'Shablonsiz',tplNote:'Shablon ranglar, zarrachalar va tabrikni oʻzgartiradi. Tungi va kunduzgi rejimda ishlaydi (kunduzi palitraning ochiq varianti).',applied:'Shablon qoʻllandi',
+h1:'Yangi yil',h2:'Sevishganlar kuni',h3:'8-mart',h4:'Navroʻz',h5:'9-may · Xotira kuni',h6:'Mustaqillik kuni',h7:'Oʻqituvchilar kuni',h8:'Konstitutsiya kuni',h9:'Ramazon hayiti',h10:'Qurbon hayiti',h11:'Toʻy',h12:'Tugʻilgan kun',
+g1:'Yangi yilingiz bilan! Saxovatli va mazali yil boʻlsin',g2:'Sevishganlar kuni muborak! Muhabbat — eng yaxshi ziravor',g3:'8-mart muborak! Bahor, gullar va ilhom tilaymiz',g4:'Navroʻz muborak! Bahor va yangilanish bayrami bilan',g5:'Xotira va qadrlash kuni. Har bir xonadonga tinchlik',g6:'Oʻzbekiston Mustaqillik kuni muborak!',g7:'Ustoz va murabbiylar kuni muborak! Bilim uchun rahmat',g8:'Konstitutsiya kuni muborak! Tinchlik va farovonlik',g9:'Ramazon hayiti muborak! Barakali kunlar tilaymiz',g10:'Qurbon hayiti muborak! Xonadoningizga tinchlik va farovonlik',g11:'Yoshlarni tabriklaymiz! Baxt va muhabbat tilaymiz',g12:'Tugʻilgan kuningiz muborak! Bugun hammasi siz uchun',
+se1:'Bahor',se2:'Yoz',se3:'Kuz',se4:'Qish',
+l1:'Siyoh va binafsha',l2:'Chernika va zigʻir',l3:'Kardamon va marvarid',l4:'Neft va qum',l5:'Ametist va kumush',l6:'Bordo va poʻlat',
+wNote:'18 ta palitra. Karuselni suring va qoʻllash uchun bosing.',wNone:'Fonsiz',wPal:'Palitra',
+hTitle:'Qanday foydalaniladi',hs1:'Mehmon QR-kodni skanerlaydi, bayroqcha bilan tilni tanlaydi va baho qoʻyadi.',hs2:'Izoh yozadi, nima yoqqanini belgilaydi va ochiq yoki anonimni tanlaydi.',hs3:'Agar baho avtomatlashtirish sozlamalarida boʻlsa, tayyor matn bilan Yandex / Google oynasi chiqadi.',hs4:'Qolgan fikrlar «Arizalar» boʻlimiga keladi — faqat rahbariyat uchun.',hs5:'Panelga kirish: logotipni 5 marta tez bosing, soʻng parolni kiriting.',hs6:'Faylni yangilashdan oldin «JSON eksport» qiling, soʻng yangi faylda «JSON import» — maʼlumotlar saqlanadi.',
+sBrand:'Nomi',sSub:'Logotip ostidagi yozuv',sMgrPass:'Menejerning yangi paroli',sExport:'JSON eksport',sImport:'JSON import',sImported:'Import bajarildi, fikrlar saqlandi',sBad:'Fayl buzilgan yoki mos emas',sResetSet:'Sozlamalarni tiklash (fikrlar saqlanadi)',sWipe:'Barcha maʼlumotlarni oʻchirish',sMaster:'Master zonasi',sMasterPass:'Yangi master parol',sLangDef:'Standart til',sData:'Maʼlumotlar',sSecurity:'Xavfsizlik',theme:'Mavzuni almashtirish',lang:'Til'},
+fr:{lname:'Français',kicker:'AVIS QR',title:'Merci d’évaluer notre établissement',hint:'Touchez les étoiles',next:'Suivant',back:'Retour',
+r1:'Pardon — nous allons tout corriger',r2:'Nous vous avons entendu et serons plus attentifs',r3:'Votre avis compte — nous ferons encore mieux',r4:'Ravis que cela vous ait plu !',r5:'Magnifique ! Vous illuminez notre journée',
+s2title:'Dites-nous en plus',s2sub:'Facultatif, mais chaque mot nous aide à progresser',tagsLbl:'Qu’avez-vous retenu ?',tag1:'Cuisine',tag2:'Service',tag3:'Ambiance',tag4:'Propreté',tag5:'Rapidité',tag6:'Rapport qualité-prix',commentPh:'Vos impressions, souhaits ou recommandations…',mgrChk:'Quelque chose ne vous a pas plu ?',mgrSub:'Écrivez directement à la direction — nous corrigerons.',contactPh:'Téléphone ou Telegram (facultatif)',howLbl:'Comment signer votre avis ?',pub:'Public',anon:'Anonyme',namePh:'Votre prénom',privacy:'Votre avis est protégé et sert uniquement à améliorer notre service',send:'Envoyer l’avis',
+res1:'Merci de nous l’avoir dit',res2:'Merci pour votre avis',res3:'Merci de nous aider à grandir',res4:'Heureux de votre visite !',res5:'Quel plaisir de vous lire !',
+subPub:'Partagez votre expérience avec d’autres clients — cela prend 20 secondes',subMgr:'Votre avis est déjà entre les mains de la direction. Nous l’étudierons avec soin pour nous améliorer.',previewLbl:'Votre avis est prêt',google:'Publier sur Google',yandex:'Publier sur Yandex',both:'Ouvrir les deux plateformes',copy:'Copier le texte',copied:'Texte copié — collez-le dans le formulaire',noPub:'Je ne souhaite pas publier',how:'Le texte de votre avis est déjà copié. Sur la plateforme, choisissez {n}★, collez le texte et touchez « Publier ».',pickTitle:'Où publier votre avis ?',nextPlat:'Parfait ! Maintenant la seconde plateforme :',again:'Laisser un autre avis',bye:'Merci ! Au plaisir de vous revoir',anonName:'Client',needStar:'Choisissez d’abord une note',liked:'Apprécié',
+panel:'Panneau de contrôle',pass:'Mot de passe',enter:'Se connecter',cancel:'Annuler',wrong:'Mot de passe incorrect',locked:'Trop de tentatives. Patientez {s} s.',forgot:'Récupérer le mot de passe',recTitle:'Récupération du mot de passe',recSub:'Saisissez le code du propriétaire et définissez un nouveau mot de passe gérant',recCode:'Code du propriétaire',newPass:'Nouveau mot de passe (6 caractères min.)',recOk:'Mot de passe gérant mis à jour',close:'Fermer',master:'Maître',manager:'Gérant',logout:'Déconnexion',save:'Enregistrer',saved:'Enregistré',confirm:'Êtes-vous sûr ?',short:'Mot de passe trop court',
+tDash:'Tableau de bord',tReq:'Demandes',tAuto:'Automatisation',tColors:'Couleurs',tTexts:'Textes',tFx:'Effets',tTpl:'Modèles',tWall:'Fonds d’écran',tHelp:'Formation',tSys:'Système',
+avg:'Note moyenne',total:'Avis recueillis',conv:'Clics vers les plateformes',week:'7 derniers jours',dist:'Répartition des notes',toMgr:'À la direction',toPub:'À publier',
+search:'Rechercher par nom, texte, contact…',fAll:'Tous',fContact:'Avec contact',resolved:'Résolu',markResolved:'Marquer comme résolu',del:'Supprimer',csv:'Exporter CSV',clearAll:'Supprimer tous les avis',empty:'Aucun avis pour le moment',clicked:'Ouvert',
+aOn:'Automatisation activée',aStars:'Notes déclenchant la proposition de publication',aPlat:'Plateformes',gId:'Google : Place ID ou lien complet',yId:'Yandex : ID d’organisation ou lien complet',aBoth:'Afficher le bouton « les deux plateformes »',aCopy:'Copier automatiquement le texte de l’avis',aPopup:'Afficher immédiatement la fenêtre des plateformes',aTest:'Tester',aNote:'Google et Yandex n’autorisent pas les sites tiers à publier des avis au nom d’un client — cela protège contre les faux avis. Nous faisons donc le maximum : nous ouvrons directement le formulaire d’avis de la plateforme et copions le texte du client à l’avance. Il ne reste qu’à coller et toucher « Publier ».',aActive:'Activé pour les notes :',aOff:'Automatisation désactivée — tous les avis vont à la direction',star:'étoiles',invalidUrl:'Lien non valide',notSet:'Non renseigné — une recherche par nom s’ouvrira',
+cBg:'Fond',cCard:'Cartes',cGold:'Or',cGold2:'Or clair',cAccent:'Accent',cInk:'Texte',cMuted:'Texte secondaire',reset:'Réinitialiser',cGuard:'Protection : les combinaisons illisibles sont restaurées automatiquement. Le mode jour est généré à partir de ces couleurs.',
+tLang:'Langue à modifier',tFilter:'Filtrer par clé ou texte',tResetLang:'Réinitialiser cette langue',tHint:'Les modifications s’appliquent immédiatement et sont enregistrées.',
+fxPart:'Particules de fond',pNone:'Aucune',pDust:'Poussière d’or',pSpark:'Étincelles',pSnow:'Neige',pPetal:'Pétales',pStars:'Étoiles',fxBlobs:'Halos lumineux',fxGlare:'Reflet sur les boutons',fxConf:'Confettis à 5★',fxSound:'Sons',fxSpeed:'Vitesse d’animation',fxReduce:'Animation minimale (téléphones modestes)',
+grpHol:'Fêtes d’Ouzbékistan et du monde',grpSea:'Saisons',grpMon:'Chaque mois de l’année',grpLux:'Collection luxe',tplAuto:'Automatique selon le calendrier',tplNone:'Sans modèle',tplNote:'Un modèle change les couleurs, les particules et le message d’accueil. Fonctionne en mode nuit et jour (le jour, version claire de la palette).',applied:'Modèle appliqué',
+h1:'Nouvel An',h2:'Saint-Valentin',h3:'8 mars',h4:'Navrouz',h5:'9 mai · Jour du souvenir',h6:'Fête de l’Indépendance',h7:'Fête des enseignants',h8:'Jour de la Constitution',h9:'Aïd el-Fitr',h10:'Aïd el-Kébir',h11:'Mariage',h12:'Anniversaire',
+g1:'Bonne année ! Qu’elle soit généreuse et savoureuse',g2:'Joyeuse Saint-Valentin ! L’amour est la meilleure des épices',g3:'Bonne fête du 8 mars ! Printemps, fleurs et inspiration',g4:'Navroʻz muborak ! Joyeuse fête du printemps et du renouveau',g5:'Jour du souvenir et des honneurs. La paix à chaque foyer',g6:'Joyeuse fête de l’Indépendance de l’Ouzbékistan !',g7:'Bonne fête des enseignants ! Merci pour le savoir',g8:'Joyeux jour de la Constitution ! Paix et prospérité',g9:'Aïd Moubarak ! Des jours bénis pour vous',g10:'Aïd el-Kébir Moubarak ! Paix et abondance à votre foyer',g11:'Félicitations aux jeunes mariés ! Amour et bonheur',g12:'Joyeux anniversaire ! Aujourd’hui, tout est pour vous',
+se1:'Printemps',se2:'Été',se3:'Automne',se4:'Hiver',
+l1:'Encre & Violette',l2:'Myrtille & Lin',l3:'Cardamome & Perle',l4:'Pétrole & Sable',l5:'Améthyste & Argent',l6:'Bordeaux & Acier',
+wNote:'18 palettes. Faites défiler le carrousel et touchez pour appliquer.',wNone:'Sans fond',wPal:'Palette',
+hTitle:'Mode d’emploi',hs1:'Le client scanne le QR code, choisit la langue par un drapeau et donne une note.',hs2:'Il écrit un commentaire, coche ce qu’il a aimé et choisit public ou anonyme.',hs3:'Si la note est activée dans l’automatisation, une fenêtre Yandex / Google s’ouvre avec le texte prêt.',hs4:'Les autres avis arrivent dans l’onglet « Demandes » — réservé à la direction.',hs5:'Accès au panneau : touchez le logo 5 fois rapidement, puis saisissez le mot de passe.',hs6:'Avant de mettre à jour le fichier, faites « Exporter JSON », puis « Importer JSON » dans le nouveau fichier — les données sont conservées.',
+sBrand:'Nom',sSub:'Légende sous le logo',sMgrPass:'Nouveau mot de passe gérant',sExport:'Exporter JSON',sImport:'Importer JSON',sImported:'Import terminé, avis conservés',sBad:'Fichier endommagé ou incompatible',sResetSet:'Réinitialiser les réglages (avis conservés)',sWipe:'Supprimer toutes les données',sMaster:'Zone maître',sMasterPass:'Nouveau mot de passe maître',sLangDef:'Langue par défaut',sData:'Données',sSecurity:'Sécurité',theme:'Changer de thème',lang:'Langue'},
+zh:{lname:'中文',kicker:'扫码评价',title:'请为我们的餐厅评分',hint:'点击星星',next:'下一步',back:'返回',
+r1:'非常抱歉，我们一定改正',r2:'我们听到了，会更加用心',r3:'珍视您的意见，我们会做得更好',r4:'很高兴您喜欢！',r5:'太棒了！您让我们的一天更美好',
+s2title:'请多告诉我们一些',s2sub:'可选填写，但每句话都帮助我们成长',tagsLbl:'令您印象深刻的是？',tag1:'菜品',tag2:'服务',tag3:'氛围',tag4:'整洁',tag5:'速度',tag6:'性价比',commentPh:'您的感受、愿望或建议……',mgrChk:'有不满意的地方吗？',mgrSub:'直接写给管理层——我们会改进。',contactPh:'电话或 Telegram（可选）',howLbl:'评价如何署名？',pub:'公开',anon:'匿名',namePh:'您的名字',privacy:'您的评价受到保护，仅用于改善服务',send:'提交评价',
+res1:'感谢您告诉我们',res2:'感谢您的反馈',res3:'感谢您帮助我们成长',res4:'很高兴您的光临！',res5:'听到这些真开心！',
+subPub:'与其他客人分享您的体验——只需 20 秒',subMgr:'您的反馈已送达管理层。我们会认真处理并不断改进。',previewLbl:'您的评价已准备好',google:'发布到 Google',yandex:'发布到 Yandex',both:'同时打开两个平台',copy:'复制文字',copied:'文字已复制——请粘贴到表单中',noPub:'我不想发布',how:'评价文字已复制。在平台上选择 {n}★，粘贴文字并点击“发布”。',pickTitle:'在哪里发布评价？',nextPlat:'很好！现在打开第二个平台：',again:'再写一条评价',bye:'谢谢！期待您再次光临',anonName:'客人',needStar:'请先选择评分',liked:'喜欢',
+panel:'控制面板',pass:'密码',enter:'登录',cancel:'取消',wrong:'密码错误',locked:'尝试次数过多，请等待 {s} 秒。',forgot:'找回密码',recTitle:'找回密码',recSub:'输入所有者代码并设置新的经理密码',recCode:'所有者代码',newPass:'新密码（至少 6 个字符）',recOk:'经理密码已更新',close:'关闭',master:'主账户',manager:'经理',logout:'退出',save:'保存',saved:'已保存',confirm:'确定吗？',short:'密码太短',
+tDash:'仪表盘',tReq:'申请',tAuto:'自动化',tColors:'颜色',tTexts:'文本',tFx:'特效',tTpl:'模板',tWall:'壁纸',tHelp:'教程',tSys:'系统',
+avg:'平均评分',total:'已收集评价',conv:'平台跳转率',week:'近 7 天',dist:'评分分布',toMgr:'给管理层',toPub:'待发布',
+search:'按姓名、内容、联系方式搜索……',fAll:'全部',fContact:'含联系方式',resolved:'已解决',markResolved:'标记为已解决',del:'删除',csv:'导出 CSV',clearAll:'删除所有评价',empty:'暂无评价',clicked:'已跳转',
+aOn:'自动化已开启',aStars:'哪些评分提示发布',aPlat:'平台',gId:'Google：Place ID 或完整链接',yId:'Yandex：机构 ID 或完整链接',aBoth:'显示“两个平台”按钮',aCopy:'自动复制评价文字',aPopup:'立即显示平台选择窗口',aTest:'测试',aNote:'Google 和 Yandex 不允许第三方网站代表客人发布评价——这是为了防止刷评。因此我们做到极致：直接打开平台的评价表单，并提前复制客人的文字。客人只需粘贴并点击“发布”。',aActive:'已对以下评分开启：',aOff:'自动化已关闭——所有评价发送给管理层',star:'星',invalidUrl:'链接无效',notSet:'未设置——将打开按名称搜索',
+cBg:'背景',cCard:'卡片',cGold:'金色',cGold2:'浅金色',cAccent:'强调色',cInk:'文字',cMuted:'次要文字',reset:'重置',cGuard:'保护：难以阅读的配色会自动恢复。日间模式由这些颜色自动生成。',
+tLang:'编辑语言',tFilter:'按键名或文字筛选',tResetLang:'重置该语言文本',tHint:'修改即时生效并自动保存。',
+fxPart:'背景粒子',pNone:'无',pDust:'金色微尘',pSpark:'火花',pSnow:'雪花',pPetal:'花瓣',pStars:'星星',fxBlobs:'光晕',fxGlare:'按钮光泽',fxConf:'5★ 时彩纸',fxSound:'声音',fxSpeed:'动画速度',fxReduce:'最少动画（低配手机）',
+grpHol:'乌兹别克斯坦及世界节日',grpSea:'四季',grpMon:'每个月份',grpLux:'奢华系列',tplAuto:'按日历自动切换',tplNone:'无模板',tplNote:'模板会更改颜色、粒子和问候语。夜间和日间模式均可使用（日间使用浅色版本）。',applied:'模板已应用',
+h1:'新年',h2:'情人节',h3:'三八妇女节',h4:'纳吾肉孜节',h5:'5月9日 · 纪念日',h6:'独立日',h7:'教师节',h8:'宪法日',h9:'开斋节',h10:'古尔邦节',h11:'婚礼',h12:'生日',
+g1:'新年快乐！愿新的一年丰盛美味',g2:'情人节快乐！爱是最好的调味',g3:'三八节快乐！愿春天、鲜花与灵感常伴',g4:'Navroʻz muborak！祝春天与新生的节日快乐',g5:'纪念与荣誉日。愿每个家庭平安',g6:'乌兹别克斯坦独立日快乐！',g7:'教师节快乐！感谢您传授知识',g8:'宪法日快乐！和平与繁荣',g9:'开斋节快乐！愿您日日蒙福',g10:'古尔邦节快乐！愿您家庭平安富足',g11:'恭喜新人！幸福美满',g12:'生日快乐！今天一切为您',
+se1:'春',se2:'夏',se3:'秋',se4:'冬',
+l1:'墨色与紫罗兰',l2:'蓝莓与亚麻',l3:'豆蔻与珍珠',l4:'石油与沙',l5:'紫水晶与银',l6:'波尔多与钢',
+wNote:'18 种配色。滑动轮播并点击即可应用。',wNone:'无壁纸',wPal:'配色',
+hTitle:'使用说明',hs1:'客人扫描二维码，用国旗选择语言并评分。',hs2:'填写评论，勾选喜欢的方面，并选择公开或匿名。',hs3:'如果该评分已在自动化中开启，将弹出带有文字的 Yandex / Google 窗口。',hs4:'其他评价进入“申请”标签——仅管理层可见。',hs5:'进入面板：快速点击标志 5 次，然后输入密码。',hs6:'更新文件前先“导出 JSON”，然后在新文件中“导入 JSON”——数据不会丢失。',
+sBrand:'名称',sSub:'标志下方文字',sMgrPass:'新的经理密码',sExport:'导出 JSON',sImport:'导入 JSON',sImported:'导入完成，评价已保留',sBad:'文件已损坏或不兼容',sResetSet:'重置设置（保留评价）',sWipe:'删除所有数据',sMaster:'主账户区域',sMasterPass:'新的主密码',sLangDef:'默认语言',sData:'数据',sSecurity:'安全',theme:'切换主题',lang:'语言'},
+ja:{lname:'日本語',kicker:'QRレビュー',title:'当店の評価をお願いします',hint:'星をタップしてください',next:'次へ',back:'戻る',
+r1:'申し訳ありません。必ず改善いたします',r2:'ご意見を受け止め、より丁寧に努めます',r3:'貴重なご意見に感謝し、さらに良くします',r4:'お楽しみいただけて嬉しいです！',r5:'素晴らしい！最高の一日になりました',
+s2title:'詳しく教えてください',s2sub:'任意ですが、一言一言が成長の力になります',tagsLbl:'印象に残ったのは？',tag1:'料理',tag2:'サービス',tag3:'雰囲気',tag4:'清潔さ',tag5:'スピード',tag6:'コストパフォーマンス',commentPh:'ご感想、ご要望、おすすめなど…',mgrChk:'ご不満な点がありましたか？',mgrSub:'責任者へ直接お書きください。改善いたします。',contactPh:'電話またはTelegram（任意）',howLbl:'レビューの表示方法は？',pub:'公開',anon:'匿名',namePh:'お名前',privacy:'レビューは保護され、サービス向上のためにのみ使用されます',send:'レビューを送信',
+res1:'お知らせいただきありがとうございます',res2:'ご意見ありがとうございます',res3:'成長へのご協力に感謝します',res4:'ご来店ありがとうございます！',res5:'とても嬉しいお言葉です！',
+subPub:'ほかのお客様と体験を共有しませんか — 20秒で完了します',subMgr:'ご意見は責任者に届きました。丁寧に確認し、改善いたします。',previewLbl:'レビューの準備ができました',google:'Googleに投稿',yandex:'Yandexに投稿',both:'両方のサイトを開く',copy:'テキストをコピー',copied:'コピーしました。フォームに貼り付けてください',noPub:'投稿しない',how:'レビュー本文はコピー済みです。サイトで{n}★を選び、貼り付けて「投稿」を押してください。',pickTitle:'どこに投稿しますか？',nextPlat:'ありがとうございます！次はもう一方のサイト：',again:'もう一度レビューする',bye:'ありがとうございました！またのお越しをお待ちしております',anonName:'ゲスト',needStar:'まず評価を選んでください',liked:'良かった点',
+panel:'管理パネル',pass:'パスワード',enter:'ログイン',cancel:'キャンセル',wrong:'パスワードが違います',locked:'試行回数が多すぎます。{s}秒お待ちください。',forgot:'パスワードを復元',recTitle:'パスワードの復元',recSub:'オーナーコードを入力し、マネージャーの新しいパスワードを設定してください',recCode:'オーナーコード',newPass:'新しいパスワード（6文字以上）',recOk:'マネージャーのパスワードを更新しました',close:'閉じる',master:'マスター',manager:'マネージャー',logout:'ログアウト',save:'保存',saved:'保存しました',confirm:'よろしいですか？',short:'パスワードが短すぎます',
+tDash:'ダッシュボード',tReq:'リクエスト',tAuto:'自動化',tColors:'カラー',tTexts:'テキスト',tFx:'エフェクト',tTpl:'テンプレート',tWall:'壁紙',tHelp:'使い方',tSys:'システム',
+avg:'平均評価',total:'集まったレビュー',conv:'サイトへの遷移率',week:'過去7日間',dist:'評価の分布',toMgr:'責任者へ',toPub:'投稿候補',
+search:'名前・本文・連絡先で検索…',fAll:'すべて',fContact:'連絡先あり',resolved:'対応済み',markResolved:'対応済みにする',del:'削除',csv:'CSVを書き出す',clearAll:'すべてのレビューを削除',empty:'まだレビューはありません',clicked:'遷移',
+aOn:'自動化を有効にする',aStars:'投稿を提案する評価',aPlat:'サイト',gId:'Google：Place ID または完全なリンク',yId:'Yandex：組織ID または完全なリンク',aBoth:'「両方のサイト」ボタンを表示',aCopy:'レビュー本文を自動でコピー',aPopup:'サイト選択ウィンドウをすぐに表示',aTest:'テスト',aNote:'GoogleとYandexは、第三者サイトがお客様に代わってレビューを投稿することを許可していません（やらせ防止のため）。そこで最大限の対応として、各サイトのレビューフォームを直接開き、お客様の文章を事前にコピーします。あとは貼り付けて「投稿」を押すだけです。',aActive:'有効な評価：',aOff:'自動化はオフです。すべてのレビューは責任者に届きます',star:'つ星',invalidUrl:'無効なリンクです',notSet:'未設定 — 名前で検索が開きます',
+cBg:'背景',cCard:'カード',cGold:'ゴールド',cGold2:'ライトゴールド',cAccent:'アクセント',cInk:'テキスト',cMuted:'補助テキスト',reset:'リセット',cGuard:'保護機能：読みにくい配色は自動的に元に戻ります。昼モードはこの配色から自動生成されます。',
+tLang:'編集する言語',tFilter:'キーまたは本文で絞り込み',tResetLang:'この言語をリセット',tHint:'変更はすぐに反映され、保存されます。',
+fxPart:'背景のパーティクル',pNone:'なし',pDust:'金の粒子',pSpark:'きらめき',pSnow:'雪',pPetal:'花びら',pStars:'星',fxBlobs:'光のにじみ',fxGlare:'ボタンの光沢',fxConf:'5★で紙吹雪',fxSound:'サウンド',fxSpeed:'アニメーション速度',fxReduce:'アニメーション最小（低性能端末向け）',
+grpHol:'ウズベキスタンと世界の祝日',grpSea:'四季',grpMon:'毎月',grpLux:'ラグジュアリーコレクション',tplAuto:'カレンダーで自動切替',tplNone:'テンプレートなし',tplNote:'テンプレートは配色、パーティクル、あいさつを変更します。夜・昼どちらのモードでも動作します（昼は明るい配色）。',applied:'テンプレートを適用しました',
+h1:'お正月',h2:'バレンタインデー',h3:'3月8日',h4:'ナヴルーズ',h5:'5月9日・追悼の日',h6:'独立記念日',h7:'教師の日',h8:'憲法記念日',h9:'ラマダン明けの祭り',h10:'犠牲祭',h11:'結婚式',h12:'誕生日',
+g1:'新年おめでとうございます！実り豊かでおいしい一年を',g2:'ハッピーバレンタイン！愛は最高のスパイス',g3:'3月8日おめでとうございます！春と花と輝きを',g4:'Navroʻz muborak！春と再生の祝日おめでとうございます',g5:'追悼と敬意の日。すべての家庭に平和を',g6:'ウズベキスタン独立記念日おめでとうございます！',g7:'教師の日おめでとうございます！学びに感謝を',g8:'憲法記念日おめでとうございます！平和と繁栄を',g9:'イード・ムバラク！祝福に満ちた日々を',g10:'犠牲祭おめでとうございます！ご家庭に平和と豊かさを',g11:'ご結婚おめでとうございます！末永くお幸せに',g12:'お誕生日おめでとうございます！今日はあなたが主役です',
+se1:'春',se2:'夏',se3:'秋',se4:'冬',
+l1:'インク＆バイオレット',l2:'ブルーベリー＆リネン',l3:'カルダモン＆パール',l4:'ペトロール＆サンド',l5:'アメジスト＆シルバー',l6:'ボルドー＆スチール',
+wNote:'18種類のパレット。カルーセルをスワイプしてタップで適用。',wNone:'壁紙なし',wPal:'パレット',
+hTitle:'使い方',hs1:'お客様がQRコードを読み取り、国旗で言語を選び、評価します。',hs2:'コメントを書き、良かった点を選び、公開か匿名かを選択します。',hs3:'評価が自動化設定に含まれていれば、本文入りのYandex / Googleウィンドウが表示されます。',hs4:'その他のレビューは「リクエスト」タブに届きます（責任者のみ）。',hs5:'パネルへの入り方：ロゴを素早く5回タップし、パスワードを入力します。',hs6:'ファイル更新前に「JSONを書き出す」、新しいファイルで「JSONを読み込む」と、データは保持されます。',
+sBrand:'名称',sSub:'ロゴ下のキャプション',sMgrPass:'マネージャーの新しいパスワード',sExport:'JSONを書き出す',sImport:'JSONを読み込む',sImported:'読み込み完了、レビューは保持されました',sBad:'ファイルが破損しているか互換性がありません',sResetSet:'設定をリセット（レビューは保持）',sWipe:'すべてのデータを削除',sMaster:'マスターエリア',sMasterPass:'新しいマスターパスワード',sLangDef:'既定の言語',sData:'データ',sSecurity:'セキュリティ',theme:'テーマ切替',lang:'言語'}
+};
+
+const LANGS=['ru','en','uz','fr','zh','ja'];
+const FLAGS={ru:'🇷🇺',en:'🇬🇧',uz:'🇺🇿',fr:'🇫🇷',zh:'🇨🇳',ja:'🇯🇵'};
+const BASE={bg:'#070b16',card:'#0e1424',gold:'#d4af61',gold2:'#f6e3a8',acc:'#2fb39a',ink:'#f4ecd8',muted:'#a59c87'};
+/* id, key, emoji, bg, card, gold, gold2, accent, particles */
+const T=(id,k,e,bg,card,gold,gold2,acc,p,extra)=>Object.assign({id,k,e,bg,card,gold,gold2,acc,p},extra||{});
+const TPL_HOL=[
+T('ny','h1','🎆','#0a0f24','#121a38','#e8c46a','#fff0bf','#5b7cff','snow',{g:'g1',d:[[12,25,12,31],[1,1,1,7]]}),
+T('val','h2','💌','#1c0a12','#2b111d','#f0a8b8','#ffe1e8','#e0456b','petal',{g:'g2',d:[[2,12,2,15]]}),
+T('m8','h3','🌸','#180d18','#261426','#f2b8d2','#ffe6f1','#d96aa7','petal',{g:'g3',d:[[3,6,3,9]]}),
+T('nav','h4','🌷','#0b1a12','#13281c','#e6c66e','#fff1c2','#4cc27e','petal',{g:'g4',d:[[3,19,3,24]]}),
+T('may9','h5','🕊️','#11141a','#1b2029','#d9c48f','#f5ecd2','#c0392b','stars',{g:'g5',d:[[5,8,5,10]]}),
+T('ind','h6','🇺🇿','#06141f','#0d2232','#e9c46a','#fff2c7','#1eb53a','spark',{g:'g6',d:[[8,30,9,2]]}),
+T('tch','h7','📖','#141008','#211a0e','#e0b45a','#fbe7b8','#c8783a','dust',{g:'g7',d:[[9,29,10,2]]}),
+T('con','h8','🏛️','#0b1220','#141e33','#d8bf7a','#f6ebc8','#3a6fd8','stars',{g:'g8',d:[[12,7,12,9]]}),
+T('ram','h9','🌙','#07131a','#0e212b','#e3c67b','#fff1c9','#2aa59a','stars',{g:'g9',eid:'f'}),
+T('qur','h10','🕌','#0f0f1c','#18182c','#e0bf6e','#fff0c4','#7b6cf0','spark',{g:'g10',eid:'a'}),
+T('wed','h11','💍','#14100f','#221b19','#ead7b0','#fff7e6','#c9a227','petal',{g:'g11'}),
+T('bd','h12','🎂','#160d1c','#24152e','#f0c86a','#fff1c4','#e85d9a','spark',{g:'g12'})];
+const TPL_SEA=[
+T('spring','se1','🌱','#0d1a14','#132a1f','#d9c27a','#f6ecc0','#7fd39a','petal'),
+T('summer','se2','☀️','#1a1206','#2a1d0a','#f2c14e','#fff0b3','#ff9e3d','spark'),
+T('autumn','se3','🍂','#1c0f08','#2c180d','#e0a458','#f7dcb4','#c8553d','petal'),
+T('winter','se4','❄️','#0a1420','#122133','#cfd9e6','#f4f8ff','#8ec5ff','snow')];
+const MON_E=['❄️','💝','🌷','🌧️','🌺','🌻','🏖️','🍉','🍇','🎃','🍁','🎄'];
+const MON_C=[['#0a1420','#122133','#cfd9e6','#f4f8ff','#8ec5ff','snow'],['#1a0b14','#2a1220','#efb0c4','#ffe3ec','#e0456b','petal'],['#0f1a10','#18291a','#e5c873','#fff2c4','#8bd17c','petal'],['#0c1620','#142433','#c9d6e0','#f1f6fa','#5fa8d3','dust'],['#170c12','#26141d','#f0b27a','#ffe3c8','#e05a7a','petal'],['#171306','#262009','#f2cc55','#fff3b8','#f2a33a','spark'],['#06171c','#0c262d','#f0d27a','#fff4cc','#20b2aa','spark'],['#1a0f0b','#2a1913','#f0b07a','#ffe2c6','#e2574c','dust'],['#120c1a','#1e142b','#d9b46f','#f7e6c2','#8e5bd6','dust'],['#170d06','#26160b','#f0a050','#ffdcb0','#e8742a','spark'],['#1a0e08','#2a170d','#d99a5a','#f5d6b4','#b5562f','petal'],['#07140f','#0e231a','#e8c46a','#fff0bf','#d23b3b','snow']];
+const TPL_MON=MON_C.map((c,i)=>T('mon'+(i+1),'m'+(i+1),MON_E[i],c[0],c[1],c[2],c[3],c[4],c[5]));
+const TPL_LUX=[
+T('lux1','l1','🖋️','#0d0c1d','#17152e','#b9a2e8','#e9defd','#6b5bd6','stars'),
+T('lux2','l2','🫐','#0f1426','#1a2140','#e6dcc8','#fbf6ea','#4f6bd8','dust'),
+T('lux3','l3','🌿','#0f1a14','#18281f','#e8e2d0','#fffdf5','#8fb38a','dust'),
+T('lux4','l4','🛢️','#08191c','#0f2a2e','#d8b98a','#f5e6c8','#2f8f8a','dust'),
+T('lux5','l5','🔮','#150d1f','#22152f','#c9ccd6','#f2f3f7','#9b5de5','stars'),
+T('lux6','l6','🍷','#1a0a10','#2a111a','#b8c2cc','#eef2f5','#9e2a3a','spark')];
+const TPL_ALL=[...TPL_HOL,...TPL_SEA,...TPL_MON,...TPL_LUX];
+/* Eid dates (approx., local Uzbekistan) */
+const EID={f:['2026-03-20','2027-03-10','2028-02-27','2029-02-15','2030-02-05','2031-01-25'],a:['2026-05-27','2027-05-17','2028-05-05','2029-04-24','2030-04-13','2031-04-02']};
+const WALLS=[['#0b1020','#3a2a12','#0f3b3a'],['#140a12','#5a1e3a','#2b1a4a'],['#08131c','#14506b','#3f2a10'],['#120d06','#6b4a14','#1f3d2b'],['#0a0a14','#2b2470','#6a2350'],['#06140f','#0f5a44','#4a3a12'],['#160b08','#7a2e14','#2e1a3a'],['#0a0f18','#24425f','#5f4a24'],['#0f0a16','#4b2a6b','#14505a'],['#0c1212','#2f5a50','#6b5a2f'],['#140f0a','#5e3b1e','#1e2f5e'],['#0a0c12','#3b4252','#6b5b3b'],['#120810','#6b1f3b','#3b1f6b'],['#081014','#1f4f6b','#6b1f4f'],['#0e0e0a','#4f4a1f','#1f4f2f'],['#100a0a','#5a1a1a','#5a4a1a'],['#0a1010','#1a5a5a','#5a1a4a'],['#0c0a10','#3a2a5a','#5a3a2a']];
+const DEFAULTS={lang:'',defLang:'ru',mode:'auto',colors:Object.assign({},BASE),tpl:'none',tplAuto:true,wall:-1,
+fx:{part:'dust',blobs:true,glare:true,conf:true,sound:true,speed:1,reduce:false},
+auto:{on:true,stars:[4,5],g:'',y:'',both:true,copy:true,popup:true},
+texts:{},brand:'EMIRHAN',sub:'FEEDBACK',mgrHash:'',mstHash:''};
+
+'use strict';
+const VER=3,KS='emirhan_fb_settings_v3',KR='emirhan_fb_reviews_v3',DEF_MGR='emirhan2023',DEF_MST='Idris8698';
+const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
+const MEM={};
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return MEM[k]===undefined?null:MEM[k]}},set(k,v){try{localStorage.setItem(k,v)}catch(e){MEM[k]=v}},del(k){try{localStorage.removeItem(k)}catch(e){delete MEM[k]}}};
+const clone=o=>JSON.parse(JSON.stringify(o));
+const isObj=x=>x&&typeof x==='object'&&!Array.isArray(x);
+const isHex=v=>typeof v==='string'&&/^#[0-9a-f]{6}$/i.test(v);
+const esc=s=>String(s==null?'':s).replace(/[&<>"'`]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;'}[c]));
+const clean=(v,max)=>String(v==null?'':v).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F\u200B-\u200F\u202A-\u202E\u2066-\u2069]/g,'').replace(/[<>]/g,'').slice(0,max||300).trim();
+function hsh(s){let out='';['emirhan::','::feedback'].forEach((salt,j)=>{let x=j?0x01000193:0x811c9dc5;const str=salt+s+salt;for(let i=0;i<str.length;i++){x^=str.charCodeAt(i);x=Math.imul(x,16777619)>>>0}out+=('0000000'+x.toString(16)).slice(-8)});return out}
+/* months from Intl so every language is native */
+(function(){const ruM=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];const uzM=['Yanvar','Fevral','Mart','Aprel','May','Iyun','Iyul','Avgust','Sentabr','Oktabr','Noyabr','Dekabr'];
+LANGS.forEach(l=>{for(let i=0;i<12;i++){let n='';if(l==='ru')n=ruM[i];else if(l==='uz')n=uzM[i];else{try{n=new Intl.DateTimeFormat(l,{month:'long'}).format(new Date(2026,i,15))}catch(e){n=ruM[i]}}I18N[l]['m'+(i+1)]=n.charAt(0).toUpperCase()+n.slice(1)}})})();
+const KEYS=Object.keys(I18N.ru);
+function sanitizeSettings(x){const s=clone(DEFAULTS);if(!isObj(x))return s;
+ if(LANGS.includes(x.lang))s.lang=x.lang;if(LANGS.includes(x.defLang))s.defLang=x.defLang;
+ if(['auto','day','night'].includes(x.mode))s.mode=x.mode;
+ if(isObj(x.colors))Object.keys(BASE).forEach(k=>{if(isHex(x.colors[k]))s.colors[k]=x.colors[k].toLowerCase()});
+ if(x.tpl==='none'||TPL_ALL.some(t=>t.id===x.tpl))s.tpl=x.tpl;
+ if(typeof x.tplAuto==='boolean')s.tplAuto=x.tplAuto;
+ if(Number.isInteger(x.wall)&&x.wall>=-1&&x.wall<WALLS.length)s.wall=x.wall;
+ if(isObj(x.fx)){if(['none','dust','spark','snow','petal','stars'].includes(x.fx.part))s.fx.part=x.fx.part;['blobs','glare','conf','sound','reduce'].forEach(k=>{if(typeof x.fx[k]==='boolean')s.fx[k]=x.fx[k]});const sp=Number(x.fx.speed);if(sp>=.5&&sp<=2)s.fx.speed=Math.round(sp*10)/10}
+ if(isObj(x.auto)){['on','both','copy','popup'].forEach(k=>{if(typeof x.auto[k]==='boolean')s.auto[k]=x.auto[k]});if(Array.isArray(x.auto.stars))s.auto.stars=[...new Set(x.auto.stars.map(Number).filter(n=>Number.isInteger(n)&&n>=1&&n<=5))].sort();s.auto.g=clean(x.auto.g,400);s.auto.y=clean(x.auto.y,400)}
+ if(isObj(x.texts))LANGS.forEach(l=>{if(isObj(x.texts[l])){const o={};KEYS.forEach(k=>{if(typeof x.texts[l][k]==='string'&&x.texts[l][k].trim())o[k]=clean(x.texts[l][k],700)});if(Object.keys(o).length)s.texts[l]=o}});
+ s.brand=clean(x.brand,40)||DEFAULTS.brand;s.sub=clean(x.sub,40);if(x.sub===undefined)s.sub=DEFAULTS.sub;
+ if(/^[0-9a-f]{16}$/.test(x.mgrHash||''))s.mgrHash=x.mgrHash;if(/^[0-9a-f]{16}$/.test(x.mstHash||''))s.mstHash=x.mstHash;
+ return s}
+function sanitizeReview(x){if(!isObj(x))return null;const r=Number(x.r);if(!(Number.isInteger(r)&&r>=1&&r<=5))return null;const id=clean(x.id,40);if(!/^[a-z0-9]+$/i.test(id))return null;
+ return{id,ts:Number(x.ts)||Date.now(),r,c:clean(x.c,1200),tags:Array.isArray(x.tags)?x.tags.filter(k=>/^tag[1-6]$/.test(k)).slice(0,6):[],name:clean(x.name,60),anon:!!x.anon,mgr:!!x.mgr,contact:clean(x.contact,80),lang:LANGS.includes(x.lang)?x.lang:'ru',route:x.route==='pub'?'pub':'mgr',clicks:Array.isArray(x.clicks)?x.clicks.filter(c=>isObj(c)&&['g','y','b'].includes(c.p)).slice(0,20).map(c=>({p:c.p,ts:Number(c.ts)||0})):[],done:!!x.done}}
+function loadJSON(k){try{return JSON.parse(store.get(k)||'null')}catch(e){return null}}
+let S=sanitizeSettings(loadJSON(KS));
+let R=(loadJSON(KR)||[]).map(sanitizeReview).filter(Boolean);
+const saveS=()=>store.set(KS,JSON.stringify(S));
+const saveR=()=>{if(R.length>5000)R.length=5000;store.set(KR,JSON.stringify(R))};
+let cur=S.lang||((navigator.languages||[navigator.language||'']).map(x=>String(x).slice(0,2).toLowerCase()).find(x=>LANGS.includes(x)))||S.defLang;
+function t(k){const o=S.texts[cur]&&S.texts[cur][k];if(typeof o==='string'&&o)return o;const d=I18N[cur]&&I18N[cur][k];if(d!=null)return d;return I18N.ru[k]!=null?I18N.ru[k]:k}
+/* ---------- color science ---------- */
+const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const hex=a=>'#'+a.map(v=>('0'+Math.max(0,Math.min(255,Math.round(v))).toString(16)).slice(-2)).join('');
+const mix=(a,b,p)=>{const x=rgb(a),y=rgb(b);return hex(x.map((v,i)=>v+(y[i]-v)*p))};
+const lum=h=>{const c=rgb(h).map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+const contrast=(a,b)=>{const x=lum(a),y=lum(b);return(Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+const rgba=(h,a)=>{const c=rgb(h);return'rgba('+c[0]+','+c[1]+','+c[2]+','+a+')'};
+function guard(c){const o={};Object.keys(BASE).forEach(k=>o[k]=isHex(c[k])?c[k]:BASE[k]);const dark=lum(o.bg)<.35;
+ if(contrast(o.ink,o.bg)<4.5)o.ink=dark?BASE.ink:'#241c12';
+ if(contrast(o.muted,o.bg)<2.6)o.muted=dark?BASE.muted:'#6b604e';
+ let n=0;while(contrast(o.gold,o.bg)<2.4&&n++<12)o.gold=dark?mix(o.gold,'#ffffff',.15):mix(o.gold,'#000000',.15);
+ if(contrast(o.ink,o.card)<4)o.card=dark?mix(o.bg,'#ffffff',.05):mix(o.bg,'#ffffff',.6);
+ return o}
+function lightOf(c){const o={bg:mix(c.bg,'#f8f2e6',.92),card:mix(c.card,'#fffdf8',.94),gold:mix(c.gold,'#000000',.36),gold2:mix(c.gold,'#000000',.2),acc:mix(c.acc,'#000000',.22),ink:'#241c12',muted:'#6b604e'};let n=0;while(contrast(o.gold,o.bg)<3.2&&n++<10)o.gold=mix(o.gold,'#000000',.12);return o}
+function isDay(){if(S.mode==='day')return true;if(S.mode==='night')return false;const h=new Date().getHours();return h>=7&&h<19}
+function holidayToday(){const d=new Date(),md=(d.getMonth()+1)*100+d.getDate();for(const tp of TPL_HOL){if(tp.d&&tp.d.some(r=>md>=r[0]*100+r[1]&&md<=r[2]*100+r[3]))return tp;if(tp.eid){const hit=EID[tp.eid].some(s=>{const e=new Date(s+'T00:00:00');const diff=Math.floor((d-e)/864e5);return diff>=-1&&diff<=3});if(hit)return tp}}return null}
+function activeTpl(){if(S.tplAuto){const h=holidayToday();if(h)return h}return S.tpl!=='none'?TPL_ALL.find(x=>x.id===S.tpl)||null:null}
+let partType='dust';
+function applyTheme(){const tp=activeTpl();let c=Object.assign({},S.colors);const temp=tp&&tp.id!==S.tpl;
+ if(temp)Object.assign(c,{bg:tp.bg,card:tp.card,gold:tp.gold,gold2:tp.gold2,acc:tp.acc});
+ c=guard(c);const day=isDay();if(day)c=guard(lightOf(c));
+ const st=document.documentElement.style;Object.keys(c).forEach(k=>st.setProperty('--'+k,c[k]));
+ st.setProperty('--line',rgba(c.gold,day?.32:.28));st.setProperty('--bgA',rgba(c.bg,.8));st.setProperty('--gold14',rgba(c.gold,.14));st.setProperty('--gold16',rgba(c.gold,.16));st.setProperty('--gold28',rgba(c.gold,.3));st.setProperty('--gold45',rgba(c.gold,.45));st.setProperty('--gold55',rgba(c.gold,.55));st.setProperty('--goldDeep',mix(c.gold,'#000000',.3));st.setProperty('--cardHi',mix(c.card,'#ffffff',day?.4:.07));st.setProperty('--accDeep',mix(c.acc,'#000000',.4));st.setProperty('--acc18',rgba(c.acc,.18));st.setProperty('--field',day?'rgba(255,255,255,.7)':'rgba(0,0,0,.26)');st.setProperty('--starOff',day?'rgba(60,40,10,.12)':'rgba(255,255,255,.14)');st.setProperty('--shadow',day?'0 24px 60px rgba(80,55,20,.14)':'0 30px 80px rgba(0,0,0,.45)');
+ if(S.wall>=0&&WALLS[S.wall]){const w=WALLS[S.wall].map(x=>day?mix(x,'#f7f0e2',.86):x);st.setProperty('--wall','radial-gradient(120% 70% at 0% 0%,'+rgba(w[1],.85)+' 0,transparent 60%),radial-gradient(120% 70% at 100% 100%,'+rgba(w[2],.85)+' 0,transparent 60%),linear-gradient('+w[0]+','+w[0]+')')}else st.setProperty('--wall','none');
+ st.setProperty('--spd',S.fx.speed);
+ const m=$('meta[name=theme-color]');if(m)m.setAttribute('content',c.bg);
+ document.body.classList.toggle('noblobs',!S.fx.blobs);document.body.classList.toggle('glare',S.fx.glare);document.body.classList.toggle('reduce',S.fx.reduce);
+ ['#themeBtn','#adTheme'].forEach(s=>{const b=$(s);if(b)b.textContent=day?'🌙':'☀️'});
+ const g=$('#greet');if(tp&&tp.g){g.classList.remove('hidden');$('#greetE').textContent=tp.e;$('#greetT').textContent=t(tp.g)}else g.classList.add('hidden');
+ const np=S.fx.reduce?'none':(temp?tp.p:S.fx.part);if(np!==partType){partType=np;FX.init()}
+}
+/* ---------- i18n ---------- */
+function applyI18n(){document.documentElement.lang=cur;
+ $$('[data-t]').forEach(el=>el.textContent=t(el.dataset.t));$$('[data-tp]').forEach(el=>el.placeholder=t(el.dataset.tp));$$('[data-ta]').forEach(el=>{el.setAttribute('aria-label',t(el.dataset.ta));el.title=t(el.dataset.ta)});
+ $('#brandName').textContent=S.brand;$('#brandSub').textContent=S.sub;$('#logo').textContent=S.brand;$('#footBrand').textContent=S.brand;document.title=S.brand+' · '+t('kicker');
+ $('#langFlag').textContent=FLAGS[cur];$('#langCode').textContent=cur.toUpperCase();const af=$('#adFlag');if(af)af.textContent=FLAGS[cur];
+ renderTags();if(G.r)$('#phrase').textContent=t('r'+G.r);renderStarsAria();
+ if($('#s3').classList.contains('on')&&G.review)renderResult(false);
+ const tp=activeTpl();if(tp&&tp.g)$('#greetT').textContent=t(tp.g);
+ if(ADM.open)renderAdmin();
+}
+function setLang(l){if(!LANGS.includes(l))return;cur=l;S.lang=l;saveS();applyI18n();closeModal('#mLang')}
+/* ---------- UI helpers ---------- */
+let toastT;function toast(m){const el=$('#toast');el.textContent=m;el.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('on'),2800)}
+function openModal(s){$(s).classList.add('on')}
+function closeModal(s){$(s).classList.remove('on')}
+const STAR='<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linejoin="round" d="M12 2.4l2.95 6 6.6.95-4.78 4.66 1.13 6.57L12 17.47l-5.9 3.11 1.13-6.57L2.45 9.35l6.6-.95z"/></svg>';
+function starsHTML(n,size){let h='';for(let i=0;i<n;i++)h+=STAR.replace('<svg ','<svg style="width:'+size+'px;height:'+size+'px;animation-delay:'+(i*.12)+'s" ');return h}
+/* ---------- sound ---------- */
+let AC=null;function chime(n){if(!S.fx.sound)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const now=AC.currentTime;[0,.09].forEach((d,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.value=392*Math.pow(2,(n*2+i*4)/12);g.gain.setValueAtTime(0,now+d);g.gain.linearRampToValueAtTime(.06,now+d+.02);g.gain.exponentialRampToValueAtTime(.0001,now+d+.6);o.connect(g).connect(AC.destination);o.start(now+d);o.stop(now+d+.65)})}catch(e){}}
+/* ---------- guest flow ---------- */
+const G={r:0,tags:new Set(),pub:true,review:null,opened:{}};
+function renderStars(){const box=$('#stars');let h='';for(let i=1;i<=5;i++)h+='<button class="star'+(i<=G.r?' on':'')+'" role="radio" data-n="'+i+'">'+STAR+'</button>';box.innerHTML=h;renderStarsAria()}
+function renderStarsAria(){$$('#stars .star').forEach(b=>{const n=+b.dataset.n;b.setAttribute('aria-label',n+' ★');b.setAttribute('aria-checked',String(n===G.r))})}
+function setRating(n){G.r=n;$$('#stars .star').forEach(b=>{const i=+b.dataset.n;b.classList.remove('on');if(i<=n){void b.offsetWidth;b.style.animationDelay=((i-1)*.05)+'s';b.classList.add('on')}});renderStarsAria();
+ const p=$('#phrase');p.style.opacity=0;setTimeout(()=>{p.textContent=t('r'+n);p.style.opacity=1},140);$('#toS2').disabled=false;chime(n)}
+function renderTags(){const box=$('#tags');box.innerHTML=[1,2,3,4,5,6].map(i=>'<button class="chip'+(G.tags.has('tag'+i)?' on':'')+'" data-k="tag'+i+'">'+esc(t('tag'+i))+'</button>').join('')}
+function go(id){$$('.step').forEach(s=>s.classList.toggle('on',s.id===id));try{window.scrollTo({top:0,behavior:S.fx.reduce?'auto':'smooth'})}catch(e){window.scrollTo(0,0)}}
+const eligible=r=>S.auto.on&&S.auto.stars.includes(r);
+function toStep2(){if(!G.r){toast(t('needStar'));return}$('#miniStars').innerHTML=starsHTML(G.r,30);const chk=$('#mgrChk');if(!chk.dataset.touched){chk.checked=G.r<=3;$('#contact').classList.toggle('hidden',!chk.checked)}go('s2')}
+function submit(){if(!G.r){toast(t('needStar'));go('s1');return}const mgr=$('#mgrChk').checked;
+ const rv={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),ts:Date.now(),r:G.r,c:clean($('#comment').value,1200),tags:[...G.tags],name:G.pub?clean($('#gname').value,60):'',anon:!G.pub,mgr,contact:mgr?clean($('#contact').value,80):'',lang:cur,route:eligible(G.r)?'pub':'mgr',clicks:[],done:false};
+ R.unshift(rv);saveR();G.review=rv;G.opened={};renderResult(true);go('s3');chime(5)}
+function reviewText(rv){const parts=[];if(rv.c)parts.push(rv.c);if(rv.tags.length)parts.push(t('liked')+': '+rv.tags.map(k=>t(k)).join(', '));if(!parts.length)parts.push(t('r'+rv.r));return parts.join('\n')}
+function previewHTML(rv){return'<div class="pv-h"><span>'+esc(t('previewLbl'))+'</span><span class="res-stars" style="margin:0;gap:2px">'+starsHTML(rv.r,18)+'</span></div><p>'+esc(reviewText(rv))+'</p><div class="pv-n">— '+esc(rv.name||t('anonName'))+'</div>'}
+function platHTML(){const o=G.opened;let h='';const half=(o.g&&!o.y)||(o.y&&!o.g);if(half)h+='<p class="small" style="margin:0;color:var(--gold)">✨ '+esc(t('nextPlat'))+'</p>';
+ if(!o.g||!half)h+='<button class="btn btn-g" data-plat="g"><b style="color:#4285f4">G</b> '+esc(t('google'))+(o.g?' ✓':'')+'</button>';
+ if(!o.y||!half)h+='<button class="btn btn-y" data-plat="y"><b>Я</b> '+esc(t('yandex'))+(o.y?' ✓':'')+'</button>';
+ if(S.auto.both&&!o.g&&!o.y)h+='<button class="btn btn-both" data-plat="b">⇄ '+esc(t('both'))+'</button>';
+ h+='<button class="btn btn-line" data-plat="c">⧉ '+esc(t('copy'))+'</button>';return h}
+function renderResult(first){const rv=G.review;if(!rv)return;$('#resStars').innerHTML=starsHTML(rv.r,44);$('#resT').textContent=t('res'+rv.r);
+ const el=rv.route==='pub'&&!G.declined;$('#resS').textContent=G.declined?t('bye'):(el?t('subPub'):t('subMgr'));$('#pubBox').classList.toggle('hidden',!el);
+ if(el){$('#preview').innerHTML=previewHTML(rv);$('#preview2').innerHTML=previewHTML(rv);$('#platBtns').innerHTML=platHTML();$('#platBtns2').innerHTML=platHTML();const how=t('how').replace('{n}',rv.r);$('#howTxt').textContent=how;$('#howTxt2').textContent=how;if(first&&S.auto.popup)setTimeout(()=>{if(G.review===rv&&!G.declined)openModal('#mPub')},900)}
+ if(first&&rv.r===5&&S.fx.conf&&!S.fx.reduce)FX.confetti()}
+function copyText(s){const fb=()=>{const ta=document.createElement('textarea');ta.value=s;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();try{ta.setSelectionRange(0,s.length)}catch(e){}try{document.execCommand('copy')}catch(e){}ta.remove()};try{if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(s).catch(fb);else fb()}catch(e){fb()}}
+function safeUrl(v,kind){try{const u=new URL(v);if(u.protocol!=='https:')return null;const h=u.hostname.toLowerCase();const ok=kind==='g'?/(^|\.)(google\.[a-z.]{2,8}|goo\.gl|g\.page)$/.test(h):/(^|\.)(yandex\.[a-z.]{2,8}|ya\.ru)$/.test(h);return ok?u.href:null}catch(e){return null}}
+function gUrl(){const v=(S.auto.g||'').trim();if(/^https?:/i.test(v))return safeUrl(v,'g');if(/^[A-Za-z0-9_-]{10,}$/.test(v))return'https://search.google.com/local/writereview?placeid='+encodeURIComponent(v);return'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(S.brand+' Samarkand')}
+function yUrl(){const v=(S.auto.y||'').trim();if(/^https?:/i.test(v))return safeUrl(v,'y');if(/^\d{5,}$/.test(v))return'https://yandex.uz/maps/org/'+v+'/reviews/?add-review=true';return'https://yandex.uz/maps/?text='+encodeURIComponent(S.brand+' Samarkand')}
+function openUrl(u){if(!u){toast(t('invalidUrl'));return}const w=window.open(u,'_blank');if(w){try{w.opener=null}catch(e){}}else location.href=u}
+function publish(p){const rv=G.review;if(!rv)return;const txt=reviewText(rv);
+ if(p==='c'){copyText(txt);toast(t('copied'));return}
+ if(S.auto.copy){copyText(txt);toast(t('copied'))}
+ const real=p==='b'?'g':p;rv.clicks.push({p,ts:Date.now()});saveR();G.opened[real]=true;openUrl(real==='g'?gUrl():yUrl());
+ $('#platBtns').innerHTML=platHTML();$('#platBtns2').innerHTML=platHTML()}
+function resetGuest(){G.r=0;G.tags=new Set();G.pub=true;G.review=null;G.opened={};G.declined=false;$('#comment').value='';$('#gname').value='';$('#contact').value='';const c=$('#mgrChk');c.checked=false;delete c.dataset.touched;$('#contact').classList.add('hidden');$$('#seg button').forEach(b=>b.classList.toggle('on',b.dataset.v==='pub'));$('#gname').classList.remove('hidden');$('#phrase').textContent='';$('#toS2').disabled=true;renderStars();renderTags();go('s1')}
+
+/* ---------- particles & confetti ---------- */
+const FX=(function(){const cv=document.getElementById('fx'),ctx=cv.getContext('2d');let W=0,H=0,P=[],C=[],raf=0,dpr=1;
+ function size(){dpr=Math.min(window.devicePixelRatio||1,1.5);W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+ const css=k=>getComputedStyle(document.documentElement).getPropertyValue(k).trim()||'#d4af61';
+ function mk(type,fresh){const r=Math.random;const p={x:r()*W,y:fresh?r()*H:(type==='snow'||type==='petal'?-10:H+10),a:r(),t:r()*6.28};
+  if(type==='dust'){p.s=.6+r()*1.8;p.vy=-(.12+r()*.35);p.vx=(r()-.5)*.15}
+  else if(type==='spark'){p.s=.8+r()*1.6;p.vy=-(.4+r()*.9);p.vx=(r()-.5)*.5}
+  else if(type==='snow'){p.s=1+r()*2.4;p.vy=.3+r()*.8;p.vx=(r()-.5)*.3}
+  else if(type==='petal'){p.s=3+r()*4;p.vy=.4+r()*.7;p.vx=(r()-.5)*.6;p.rot=r()*6.28}
+  else{p.s=.5+r()*1.4;p.vy=0;p.vx=0}return p}
+ function init(){P=[];if(partType!=='none'){const n=Math.round(Math.min(70,Math.max(24,W*H/15000)));for(let i=0;i<n;i++)P.push(mk(partType,true))}start()}
+ function start(){if(!raf&&(P.length||C.length)&&!document.hidden)raf=requestAnimationFrame(loop)}
+ function loop(){raf=0;ctx.clearRect(0,0,W,H);const sp=S.fx.speed,gold=css('--gold'),gold2=css('--gold2'),acc=css('--acc');
+  for(let i=0;i<P.length;i++){const p=P[i];p.t+=.02*sp;p.x+=(p.vx+Math.sin(p.t)*.15)*sp;p.y+=p.vy*sp;
+   if(p.y<-12||p.y>H+12||p.x<-12||p.x>W+12){P[i]=mk(partType,false);continue}
+   let al=partType==='stars'?(.25+.75*Math.abs(Math.sin(p.t*1.6))):(.35+.5*Math.abs(Math.sin(p.t)));ctx.globalAlpha=al;
+   if(partType==='petal'){p.rot+=.01*sp;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=i%2?acc:gold2;ctx.beginPath();ctx.ellipse(0,0,p.s,p.s*.5,0,0,6.28);ctx.fill();ctx.restore()}
+   else{ctx.fillStyle=partType==='snow'?'#ffffff':(partType==='spark'?gold2:gold);ctx.beginPath();ctx.arc(p.x,p.y,p.s,0,6.28);ctx.fill()}}
+  for(let i=C.length-1;i>=0;i--){const c=C[i];c.vy+=.12;c.x+=c.vx;c.y+=c.vy;c.rot+=c.vr;c.life--;if(c.life<=0||c.y>H+20){C.splice(i,1);continue}ctx.globalAlpha=Math.min(1,c.life/40);ctx.save();ctx.translate(c.x,c.y);ctx.rotate(c.rot);ctx.fillStyle=c.col;ctx.fillRect(-c.w/2,-c.h/2,c.w,c.h);ctx.restore()}
+  ctx.globalAlpha=1;if(P.length||C.length)raf=requestAnimationFrame(loop)}
+ function confetti(){const cols=[css('--gold'),css('--gold2'),css('--acc'),'#ffffff','#f06292'];for(let i=0;i<140;i++){const a=-Math.PI/2+(Math.random()-.5)*1.6,v=7+Math.random()*8;C.push({x:W/2,y:H*.45,vx:Math.cos(a)*v,vy:Math.sin(a)*v,w:5+Math.random()*6,h:8+Math.random()*8,rot:Math.random()*6,vr:(Math.random()-.5)*.3,col:cols[i%cols.length],life:110+Math.random()*60})}start()}
+ size();addEventListener('resize',()=>{size();init()});document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0}else start()});
+ return{init,confetti}})();
+/* ---------- login & recovery ---------- */
+let taps=0,tapT=0,fails=0,lockUntil=Number(sessionStorage.getItem('ef_lock')||0);
+function tap(){taps++;clearTimeout(tapT);tapT=setTimeout(()=>taps=0,1800);if(taps>=5){taps=0;$('#pw').value='';$('#pwErr').textContent='';openModal('#mLogin');setTimeout(()=>$('#pw').focus(),150)}}
+function lockedMsg(){const s=Math.ceil((lockUntil-Date.now())/1000);return s>0?t('locked').replace('{s}',s):''}
+function fail(errSel){fails++;if(fails>=5){fails=0;lockUntil=Date.now()+30000;try{sessionStorage.setItem('ef_lock',lockUntil)}catch(e){}}$(errSel).textContent=lockedMsg()||t('wrong');const sh=$(errSel).closest('.sheet');sh.animate&&sh.animate([{transform:'translateX(0)'},{transform:'translateX(-10px)'},{transform:'translateX(10px)'},{transform:'translateX(0)'}],{duration:300})}
+function login(){const lm=lockedMsg();if(lm){$('#pwErr').textContent=lm;return}const v=$('#pw').value;const hv=hsh(v);
+ if(hv===(S.mstHash||hsh(DEF_MST)))ADM.role='master';else if(hv===(S.mgrHash||hsh(DEF_MGR)))ADM.role='manager';else{fail('#pwErr');return}
+ fails=0;$('#pw').value='';closeModal('#mLogin');openAdmin()}
+function recover(){const lm=lockedMsg();if(lm){$('#recErr').textContent=lm;return}if(hsh($('#recCode').value)!==(S.mstHash||hsh(DEF_MST))){fail('#recErr');return}
+ const np=$('#recNew').value;if(np.length<6){$('#recErr').textContent=t('short');return}if(hsh(np)===(S.mstHash||hsh(DEF_MST))){$('#recErr').textContent=t('wrong');return}
+ S.mgrHash=hsh(np);saveS();$('#recCode').value='';$('#recNew').value='';$('#recErr').textContent='';closeModal('#mRec');toast(t('recOk'))}
+/* ---------- admin ---------- */
+const ADM={open:false,role:null,tab:'dash',rf:'all',rq:'',tl:'ru',tf:''};
+const TABS=[['dash','📊','tDash'],['req','📨','tReq'],['auto','⚙️','tAuto'],['colors','🎨','tColors'],['texts','📝','tTexts'],['fx','✨','tFx'],['tpl','🎉','tTpl'],['wall','🎠','tWall'],['help','❓','tHelp'],['sys','🔧','tSys']];
+function openAdmin(){ADM.open=true;ADM.tl=cur;$('#admin').classList.add('on');document.body.style.overflow='hidden';renderAdmin()}
+function closeAdmin(){ADM.open=false;ADM.role=null;$('#admin').classList.remove('on');document.body.style.overflow='';$('#panes').innerHTML=''}
+const sw=(act,on,label)=>'<label class="sw"><span>'+esc(label)+'</span><span class="tg"><input type="checkbox" data-act="'+act+'"'+(on?' checked':'')+'><span></span></span></label>';
+const fmtD=ts=>{try{return new Date(ts).toLocaleString(cur==='zh'?'zh-CN':cur,{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}catch(e){return new Date(ts).toLocaleString()}};
+function renderAdmin(){if(!ADM.open)return;$('#roleBadge').textContent=ADM.role==='master'?'👑 '+t('master'):t('manager');$('#roleBadge').className='role'+(ADM.role==='master'?' mst':'');$('#adFlag').textContent=FLAGS[cur];
+ $('#tabs').innerHTML=TABS.map(x=>'<button class="tab'+(ADM.tab===x[0]?' on':'')+'" data-tab="'+x[0]+'">'+x[1]+' '+esc(t(x[2]))+'</button>').join('');
+ $('#panes').innerHTML='<div class="pane on">'+(PANES[ADM.tab]||PANES.dash)()+'</div>';if(ADM.tab==='req')renderReqList();if(ADM.tab==='texts')renderTextList();applyI18nStatic()}
+function applyI18nStatic(){$$('#panes [data-t]').forEach(el=>el.textContent=t(el.dataset.t))}
+const PANES={
+dash(){const n=R.length,sum=R.reduce((a,r)=>a+r.r,0),avg=n?(sum/n).toFixed(2):'—',pub=R.filter(r=>r.route==='pub'),clk=pub.filter(r=>r.clicks.length).length,wk=R.filter(r=>r.ts>Date.now()-7*864e5).length;const cnt=[0,0,0,0,0,0];R.forEach(r=>cnt[r.r]++);const mx=Math.max(1,...cnt);
+ return'<div class="kpis"><div class="kpi"><small>'+esc(t('avg'))+'</small><b>'+avg+' <span style="font-size:15px;color:var(--muted)">/ 5</span></b></div><div class="kpi"><small>'+esc(t('total'))+'</small><b>'+n+'</b></div><div class="kpi"><small>'+esc(t('conv'))+'</small><b>'+(pub.length?Math.round(clk/pub.length*100)+'%':'—')+'</b></div><div class="kpi"><small>'+esc(t('week'))+'</small><b>'+wk+'</b></div></div>'+
+ '<div class="panel"><h3>'+esc(t('dist'))+'</h3>'+[5,4,3,2,1].map(i=>'<div class="bar"><span style="color:var(--gold)">'+i+' ★</span><i><em style="width:'+(cnt[i]/mx*100)+'%"></em></i><span>'+cnt[i]+'</span></div>').join('')+'</div>'+
+ '<div class="panel"><div class="bar" style="grid-template-columns:1fr auto"><span>📨 '+esc(t('toMgr'))+'</span><b>'+(n-pub.length)+'</b></div><div class="bar" style="grid-template-columns:1fr auto"><span>🌐 '+esc(t('toPub'))+'</span><b>'+pub.length+'</b></div><p class="small" style="text-align:left">⚡ '+esc(S.auto.on?t('aActive')+' '+S.auto.stars.map(s=>s+'★').join(', '):t('aOff'))+'</p></div>'},
+req(){const f=[['all','fAll'],['mgr','toMgr'],['pub','toPub'],['contact','fContact']];return'<div class="panel"><input type="search" data-act="rq" value="'+esc(ADM.rq)+'" placeholder="'+esc(t('search'))+'"><div class="chips" style="margin-top:12px">'+f.map(x=>'<button class="chip'+(ADM.rf===x[0]?' on':'')+'" data-act="rf" data-v="'+x[0]+'">'+esc(t(x[1]))+'</button>').join('')+'</div><div class="row" style="margin-top:12px"><button class="mini" data-act="csv">⬇ '+esc(t('csv'))+'</button><button class="mini red" data-act="clearAll">🗑 '+esc(t('clearAll'))+'</button></div></div><div id="reqList"></div>'},
+auto(){const a=S.auto;const gu=gUrl(),yu=yUrl();return'<div class="panel">'+sw('aOn',a.on,t('aOn'))+'<span class="lbl">'+esc(t('aStars'))+'</span><div class="starpick">'+[1,2,3,4,5].map(i=>'<button data-act="astar" data-n="'+i+'" class="'+(a.stars.includes(i)?'on':'')+'">'+i+' ★</button>').join('')+'</div><p class="small" style="text-align:left;color:var(--acc)">✨ '+esc(a.on?t('aActive')+' '+(a.stars.length?a.stars.map(s=>s+'★').join(', '):'—'):t('aOff'))+'</p></div>'+
+ '<div class="panel"><h3>'+esc(t('aPlat'))+'</h3><span class="lbl">'+esc(t('gId'))+'</span><div class="row"><input type="text" data-act="ag" value="'+esc(a.g)+'" placeholder="ChIJ… / https://g.page/…"><button class="mini" data-act="testg" style="flex:0 0 auto">↗ '+esc(t('aTest'))+'</button></div><p class="small" style="text-align:left;word-break:break-all">'+esc(a.g?(gu||t('invalidUrl')):t('notSet'))+'</p>'+
+ '<span class="lbl">'+esc(t('yId'))+'</span><div class="row"><input type="text" data-act="ay" value="'+esc(a.y)+'" placeholder="1234567890 / https://yandex.uz/maps/org/…"><button class="mini" data-act="testy" style="flex:0 0 auto">↗ '+esc(t('aTest'))+'</button></div><p class="small" style="text-align:left;word-break:break-all">'+esc(a.y?(yu||t('invalidUrl')):t('notSet'))+'</p>'+
+ sw('aBoth',a.both,t('aBoth'))+sw('aCopy',a.copy,t('aCopy'))+sw('aPopup',a.popup,t('aPopup'))+'</div><div class="panel"><p class="small" style="text-align:left">ℹ️ '+esc(t('aNote'))+'</p></div>'},
+colors(){const L=[['bg','cBg'],['card','cCard'],['gold','cGold'],['gold2','cGold2'],['acc','cAccent'],['ink','cInk'],['muted','cMuted']];return'<div class="panel"><div class="colors">'+L.map(x=>'<label>'+esc(t(x[1]))+'<input type="color" data-act="color" data-k="'+x[0]+'" value="'+S.colors[x[0]]+'"></label>').join('')+'</div><div class="row" style="margin-top:16px"><button class="mini" data-act="cReset">↺ '+esc(t('reset'))+'</button></div><p class="small" style="text-align:left">🛡️ '+esc(t('cGuard'))+'</p></div>'},
+texts(){return'<div class="panel"><span class="lbl" style="margin-top:0">'+esc(t('tLang'))+'</span><div class="chips">'+LANGS.map(l=>'<button class="chip'+(ADM.tl===l?' on':'')+'" data-act="tl" data-v="'+l+'">'+FLAGS[l]+' '+esc(I18N[l].lname)+'</button>').join('')+'</div><input type="search" data-act="tf" value="'+esc(ADM.tf)+'" placeholder="'+esc(t('tFilter'))+'" style="margin-top:12px"><div class="row" style="margin-top:12px"><button class="mini red" data-act="tReset">↺ '+esc(t('tResetLang'))+'</button></div><p class="small" style="text-align:left">'+esc(t('tHint'))+'</p></div><div class="panel"><div class="tedit" id="tlist"></div></div>'},
+fx(){const f=S.fx,P=[['none','pNone'],['dust','pDust'],['spark','pSpark'],['snow','pSnow'],['petal','pPetal'],['stars','pStars']];return'<div class="panel"><span class="lbl" style="margin-top:0">'+esc(t('fxPart'))+'</span><div class="chips">'+P.map(x=>'<button class="chip'+(f.part===x[0]?' on':'')+'" data-act="part" data-v="'+x[0]+'">'+esc(t(x[1]))+'</button>').join('')+'</div><span class="lbl">'+esc(t('fxSpeed'))+' · <span id="spdV">'+f.speed+'×</span></span><input type="range" min="0.5" max="2" step="0.1" value="'+f.speed+'" data-act="speed" style="width:100%;accent-color:var(--gold)"></div><div class="panel">'+sw('blobs',f.blobs,t('fxBlobs'))+sw('glare',f.glare,t('fxGlare'))+sw('conf',f.conf,t('fxConf'))+sw('sound',f.sound,t('fxSound'))+sw('reduce',f.reduce,t('fxReduce'))+'</div>'},
+tpl(){const card=tp=>'<button class="tpl'+(S.tpl===tp.id?' on':'')+'" data-act="tpl" data-id="'+tp.id+'" style="background:linear-gradient(150deg,'+tp.bg+' 0%,'+tp.card+' 55%,'+tp.acc+' 160%)"><span class="e">'+tp.e+'</span>'+esc(t(tp.k))+'<span class="dots"><i style="background:'+tp.gold+'"></i><i style="background:'+tp.gold2+'"></i><i style="background:'+tp.acc+'"></i></span></button>';
+ const grp=(k,list)=>'<span class="lbl">'+esc(t(k))+'</span><div class="tgrid">'+list.map(card).join('')+'</div>';const live=holidayToday();
+ return'<div class="panel">'+sw('tplAuto',S.tplAuto,t('tplAuto')+(live?' · '+live.e+' '+t(live.k):''))+'<div class="row" style="margin-top:12px"><button class="mini" data-act="tpl" data-id="none">✕ '+esc(t('tplNone'))+'</button></div><p class="small" style="text-align:left">'+esc(t('tplNote'))+'</p></div><div class="panel">'+grp('grpHol',TPL_HOL)+grp('grpSea',TPL_SEA)+grp('grpMon',TPL_MON)+grp('grpLux',TPL_LUX)+'</div>'},
+wall(){const card=(i,w)=>'<button class="wcard'+(S.wall===i?' on':'')+'" data-act="wall" data-i="'+i+'" style="background:'+(w?'radial-gradient(120% 70% at 0% 0%,'+w[1]+' 0,transparent 65%),radial-gradient(120% 70% at 100% 100%,'+w[2]+' 0,transparent 65%),'+w[0]:'var(--field)')+'">'+(w?esc(t('wPal'))+' '+(i+1):esc(t('wNone')))+'</button>';
+ return'<div class="panel"><p class="small" style="text-align:left;margin-top:0">'+esc(t('wNote'))+'</p><div class="carousel" id="car">'+card(-1,null)+WALLS.map((w,i)=>card(i,w)).join('')+'</div><div class="cnav"><button class="ibtn" data-act="carL">‹</button><button class="ibtn" data-act="carR">›</button></div></div>'},
+help(){return'<div class="panel"><h3>'+esc(t('hTitle'))+'</h3><ol class="steps">'+[1,2,3,4,5,6].map(i=>'<li>'+esc(t('hs'+i))+'</li>').join('')+'</ol></div><div class="panel"><p class="small" style="text-align:left">ℹ️ '+esc(t('aNote'))+'</p></div>'},
+sys(){let h='<div class="panel"><span class="lbl" style="margin-top:0">'+esc(t('sBrand'))+'</span><input type="text" maxlength="40" data-act="brand" value="'+esc(S.brand)+'"><span class="lbl">'+esc(t('sSub'))+'</span><input type="text" maxlength="40" data-act="sub" value="'+esc(S.sub)+'"><span class="lbl">'+esc(t('sLangDef'))+'</span><div class="chips">'+LANGS.map(l=>'<button class="chip'+(S.defLang===l?' on':'')+'" data-act="deflang" data-v="'+l+'">'+FLAGS[l]+' '+esc(I18N[l].lname)+'</button>').join('')+'</div></div>'+
+ '<div class="panel"><h3>🔐 '+esc(t('sSecurity'))+'</h3><span class="lbl">'+esc(t('sMgrPass'))+'</span><div class="row"><input type="text" id="newMgr" maxlength="64" autocomplete="new-password"><button class="mini" data-act="setMgr" style="flex:0 0 auto">'+esc(t('save'))+'</button></div></div>'+
+ '<div class="panel"><h3>💾 '+esc(t('sData'))+'</h3><div class="row"><button class="mini" data-act="export">⬇ '+esc(t('sExport'))+'</button><button class="mini" data-act="import">⬆ '+esc(t('sImport'))+'</button></div><div class="row" style="margin-top:12px"><button class="mini red" data-act="resetSet">↺ '+esc(t('sResetSet'))+'</button></div></div>';
+ if(ADM.role==='master')h+='<div class="panel mzone"><h3>👑 '+esc(t('sMaster'))+'</h3><span class="lbl">'+esc(t('sMasterPass'))+'</span><div class="row"><input type="text" id="newMst" maxlength="64" autocomplete="new-password"><button class="mini" data-act="setMst" style="flex:0 0 auto">'+esc(t('save'))+'</button></div><div class="row" style="margin-top:14px"><button class="mini red" data-act="wipe">⚠ '+esc(t('sWipe'))+'</button></div></div>';
+ return h}};
+function renderReqList(){const box=$('#reqList');if(!box)return;const q=ADM.rq.toLowerCase();let L=R.filter(r=>ADM.rf==='all'||(ADM.rf==='mgr'&&r.route==='mgr')||(ADM.rf==='pub'&&r.route==='pub')||(ADM.rf==='contact'&&r.contact));
+ if(q)L=L.filter(r=>(r.name+' '+r.c+' '+r.contact).toLowerCase().includes(q));
+ if(!L.length){box.innerHTML='<div class="panel"><p class="small">'+esc(t('empty'))+'</p></div>';return}
+ box.innerHTML=L.slice(0,300).map(r=>'<div class="rv'+(r.done?' done':'')+'"><div class="rv-h"><span class="res-stars" style="margin:0;gap:2px">'+starsHTML(r.r,18)+'</span><span>'+esc(fmtD(r.ts))+' · '+FLAGS[r.lang]+'</span></div><div>'+'<span class="badge '+(r.route==='mgr'?'mgr':'pub')+'">'+esc(r.route==='mgr'?t('toMgr'):t('toPub'))+'</span>'+(r.done?'<span class="badge">✓ '+esc(t('resolved'))+'</span>':'')+(r.clicks.length?'<span class="badge">↗ '+esc(t('clicked'))+': '+r.clicks.map(c=>c.p==='y'?'Яндекс':'Google').join(', ')+'</span>':'')+'</div><p><b>'+esc(r.anon||!r.name?t('anonName')+' ('+t('anon')+')':r.name)+'</b>'+(r.c?'<br>'+esc(r.c):'')+'</p>'+(r.tags.length?'<p class="small" style="text-align:left;margin:0">'+esc(t('liked')+': '+r.tags.map(k=>t(k)).join(', '))+'</p>':'')+(r.contact?'<p>📞 '+esc(r.contact)+'</p>':'')+'<div class="row" style="margin-top:8px"><button class="mini" data-act="done" data-id="'+r.id+'">'+(r.done?'↺':'✓ '+esc(t('markResolved')))+'</button><button class="mini red" data-act="del" data-id="'+r.id+'">🗑 '+esc(t('del'))+'</button></div></div>').join('')}
+function renderTextList(){const box=$('#tlist');if(!box)return;const l=ADM.tl,q=ADM.tf.toLowerCase(),ov=S.texts[l]||{};
+ box.innerHTML=KEYS.filter(k=>k!=='lname').filter(k=>!q||k.toLowerCase().includes(q)||String(I18N[l][k]).toLowerCase().includes(q)||String(ov[k]||'').toLowerCase().includes(q)).map(k=>'<label><code>'+k+'</code>'+esc(I18N.ru[k])+'<textarea data-act="txt" data-k="'+k+'" maxlength="700">'+esc(ov[k]!=null?ov[k]:I18N[l][k])+'</textarea></label>').join('')}
+function download(name,data,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},800)}
+function csvCell(v){let s=String(v==null?'':v);if(/^[=+\-@\t\r]/.test(s))s="'"+s;return'"'+s.replace(/"/g,'""')+'"'}
+function exportCSV(){const head=['date','stars','name','anonymous','comment','liked','contact','language','route','opened','resolved'];const rows=R.map(r=>[new Date(r.ts).toISOString(),r.r,r.name,r.anon?'yes':'no',r.c,r.tags.map(k=>I18N.ru[k]).join('; '),r.contact,r.lang,r.route,r.clicks.map(c=>c.p).join(' '),r.done?'yes':'no']);download('emirhan-reviews-'+new Date().toISOString().slice(0,10)+'.csv','\ufeff'+[head,...rows].map(r=>r.map(csvCell).join(',')).join('\r\n'),'text/csv;charset=utf-8')}
+function exportJSON(){const s=clone(S);if(ADM.role!=='master')s.mstHash='';download('emirhan-feedback-'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify({app:'emirhan-feedback',v:VER,exported:new Date().toISOString(),settings:s,reviews:R},null,1),'application/json')}
+function importJSON(file){if(!file)return;if(file.size>8e6){toast(t('sBad'));return}const fr=new FileReader();fr.onload=()=>{try{const o=JSON.parse(fr.result);if(!isObj(o)||!(o.app==='emirhan-feedback'||isObj(o.settings)))throw 0;
+ const ns=sanitizeSettings(o.settings);ns.mgrHash=ns.mgrHash||S.mgrHash;ns.mstHash=(ADM.role==='master'&&ns.mstHash)?ns.mstHash:S.mstHash;
+ const map=new Map(R.map(r=>[r.id,r]));(Array.isArray(o.reviews)?o.reviews:[]).map(sanitizeReview).filter(Boolean).forEach(r=>{if(!map.has(r.id))map.set(r.id,r)});
+ S=ns;R=[...map.values()].sort((a,b)=>b.ts-a.ts);saveS();saveR();applyTheme();applyI18n();toast(t('sImported'))}catch(e){toast(t('sBad'))}};fr.readAsText(file)}
+let saveT;const deb=fn=>{clearTimeout(saveT);saveT=setTimeout(fn,350)};
+function onAdmin(e){const el=e.target.closest('[data-act],[data-tab]');if(!el)return;
+ if(el.dataset.tab){if(e.type!=='click')return;ADM.tab=el.dataset.tab;renderAdmin();return}
+ const a=el.dataset.act,type=e.type;
+ if(type==='input'){
+  if(a==='rq'){ADM.rq=el.value;renderReqList()}else if(a==='tf'){ADM.tf=el.value;renderTextList()}
+  else if(a==='ag'||a==='ay'){S.auto[a==='ag'?'g':'y']=clean(el.value,400);deb(saveS)}
+  else if(a==='color'&&isHex(el.value)){S.colors[el.dataset.k]=el.value.toLowerCase();applyTheme()}
+  else if(a==='txt'){const l=ADM.tl,k=el.dataset.k,v=clean(el.value,700);S.texts[l]=S.texts[l]||{};if(!v||v===I18N[l][k])delete S.texts[l][k];else S.texts[l][k]=v;deb(()=>{saveS();if(l===cur){$$('main [data-t],.foot [data-t],.modal [data-t]').forEach(x=>x.textContent=t(x.dataset.t));$$('[data-tp]').forEach(x=>x.placeholder=t(x.dataset.tp));renderTags();applyTheme()}})}
+  else if(a==='brand'||a==='sub'){S[a]=clean(el.value,40)||(a==='brand'?DEFAULTS.brand:'');deb(()=>{saveS();$('#brandName').textContent=S.brand;$('#brandSub').textContent=S.sub;$('#logo').textContent=S.brand;$('#footBrand').textContent=S.brand})}
+  else if(a==='speed'){S.fx.speed=Math.min(2,Math.max(.5,Number(el.value)||1));$('#spdV').textContent=S.fx.speed+'×';applyTheme();deb(saveS)}
+  return}
+ if(type==='change'){
+  if(el.type==='checkbox'){const m={aOn:['auto','on'],aBoth:['auto','both'],aCopy:['auto','copy'],aPopup:['auto','popup'],blobs:['fx','blobs'],glare:['fx','glare'],conf:['fx','conf'],sound:['fx','sound'],reduce:['fx','reduce']};if(m[a])S[m[a][0]][m[a][1]]=el.checked;if(a==='tplAuto')S.tplAuto=el.checked;saveS();applyTheme();toast(t('saved'));if(a==='aOn'||a==='tplAuto')renderAdmin();return}
+  if(a==='color'){S.colors=guard(S.colors);saveS();applyTheme();renderAdmin();toast(t('saved'))}
+  if(a==='ag'||a==='ay'){saveS();renderAdmin();toast(t('saved'))}
+  return}
+ if(type!=='click')return;
+ const id=el.dataset.id,v=el.dataset.v;
+ switch(a){
+  case'rf':ADM.rf=v;renderAdmin();break;
+  case'done':{const r=R.find(x=>x.id===id);if(r){r.done=!r.done;saveR();renderReqList()}break}
+  case'del':if(confirm(t('confirm'))){R=R.filter(x=>x.id!==id);saveR();renderReqList();toast(t('saved'))}break;
+  case'csv':exportCSV();break;
+  case'clearAll':if(confirm(t('confirm'))){R=[];saveR();renderAdmin()}break;
+  case'astar':{const n=+el.dataset.n;const s=new Set(S.auto.stars);s.has(n)?s.delete(n):s.add(n);S.auto.stars=[...s].sort();saveS();renderAdmin();break}
+  case'testg':openUrl(gUrl());break;case'testy':openUrl(yUrl());break;
+  case'cReset':S.colors=Object.assign({},BASE);S.tpl='none';saveS();applyTheme();renderAdmin();toast(t('saved'));break;
+  case'tl':ADM.tl=v;renderAdmin();break;
+  case'tReset':if(confirm(t('confirm'))){delete S.texts[ADM.tl];saveS();applyI18n()}break;
+  case'part':S.fx.part=v;saveS();applyTheme();partType='__';applyTheme();renderAdmin();break;
+  case'tpl':applyTemplate(id);break;
+  case'wall':S.wall=+el.dataset.i;saveS();applyTheme();renderAdmin();setTimeout(()=>{const c=$('#car .wcard.on');c&&c.scrollIntoView({inline:'center',block:'nearest'})},30);break;
+  case'carL':case'carR':{const c=$('#car');c.scrollBy({left:(a==='carL'?-1:1)*c.clientWidth*.7,behavior:'smooth'});break}
+  case'deflang':S.defLang=v;saveS();renderAdmin();toast(t('saved'));break;
+  case'setMgr':{const np=$('#newMgr').value;if(np.length<6){toast(t('short'));break}if(hsh(np)===(S.mstHash||hsh(DEF_MST))){toast(t('wrong'));break}S.mgrHash=hsh(np);saveS();$('#newMgr').value='';toast(t('recOk'));break}
+  case'setMst':{if(ADM.role!=='master')break;const np=$('#newMst').value;if(np.length<6){toast(t('short'));break}S.mstHash=hsh(np);saveS();$('#newMst').value='';toast(t('saved'));break}
+  case'export':exportJSON();break;case'import':$('#fileIn').value='';$('#fileIn').click();break;
+  case'resetSet':if(confirm(t('confirm'))){const keep={mgrHash:S.mgrHash,mstHash:S.mstHash,lang:S.lang};S=Object.assign(clone(DEFAULTS),keep);saveS();applyTheme();applyI18n();toast(t('saved'))}break;
+  case'wipe':if(ADM.role==='master'&&confirm(t('confirm'))&&confirm(t('sWipe')+' — '+t('confirm'))){store.del(KS);store.del(KR);S=clone(DEFAULTS);R=[];applyTheme();applyI18n();toast(t('saved'))}break;
+ }}
+function applyTemplate(id){if(id==='none'){S.tpl='none';S.colors=Object.assign({},BASE);S.fx.part='dust'}else{const tp=TPL_ALL.find(x=>x.id===id);if(!tp)return;S.tpl=id;S.colors=Object.assign({},BASE,{bg:tp.bg,card:tp.card,gold:tp.gold,gold2:tp.gold2,acc:tp.acc});S.fx.part=tp.p;
+ const live=S.tplAuto&&holidayToday();if(live&&live.id!==id){S.tplAuto=false}toast(tp.e+' '+t('applied')+(tp.g?' · '+t(tp.g):''))}saveS();partType='__';applyTheme();renderAdmin()}
+/* ---------- wiring ---------- */
+function init(){renderStars();renderTags();applyTheme();applyI18n();
+ $('#stars').addEventListener('click',e=>{const b=e.target.closest('.star');if(b)setRating(+b.dataset.n)});
+ $('#stars').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowUp'){e.preventDefault();setRating(Math.min(5,G.r+1));$$('#stars .star')[G.r-1].focus()}if(e.key==='ArrowLeft'||e.key==='ArrowDown'){e.preventDefault();setRating(Math.max(1,G.r-1));$$('#stars .star')[G.r-1].focus()}});
+ $('#toS2').onclick=toStep2;$('#back1').onclick=()=>go('s1');$('#send').onclick=submit;$('#again').onclick=resetGuest;
+ $('#tags').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;const k=c.dataset.k;G.tags.has(k)?G.tags.delete(k):G.tags.add(k);c.classList.toggle('on')});
+ $('#mgrChk').onchange=e=>{e.target.dataset.touched='1';$('#contact').classList.toggle('hidden',!e.target.checked);if(e.target.checked)setTimeout(()=>$('#contact').focus(),50)};
+ $('#seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;G.pub=b.dataset.v==='pub';$$('#seg button').forEach(x=>x.classList.toggle('on',x===b));$('#gname').classList.toggle('hidden',!G.pub)});
+ ['#platBtns','#platBtns2'].forEach(s=>$(s).addEventListener('click',e=>{const b=e.target.closest('[data-plat]');if(b)publish(b.dataset.plat)}));
+ $('#noPub').onclick=()=>{G.declined=true;closeModal('#mPub');renderResult(false)};
+ $('#brand').addEventListener('click',tap);$('#logo').addEventListener('click',tap);
+ $('#langBtn').onclick=()=>{$('#langList').innerHTML=LANGS.map(l=>'<button class="'+(l===cur?'on':'')+'" data-l="'+l+'"><span class="fl">'+FLAGS[l]+'</span>'+esc(I18N[l].lname)+'</button>').join('');openModal('#mLang')};
+ $('#adLang').onclick=()=>$('#langBtn').click();
+ $('#langList').addEventListener('click',e=>{const b=e.target.closest('[data-l]');if(b)setLang(b.dataset.l)});
+ const toggleTheme=()=>{S.mode=isDay()?'night':'day';saveS();applyTheme()};$('#themeBtn').onclick=toggleTheme;$('#adTheme').onclick=toggleTheme;
+ $('#pwGo').onclick=login;$('#pw').addEventListener('keydown',e=>{if(e.key==='Enter')login()});
+ $('#forgotBtn').onclick=()=>{closeModal('#mLogin');$('#recErr').textContent='';openModal('#mRec')};$('#recGo').onclick=recover;
+ $$('[data-close]').forEach(b=>b.onclick=()=>b.closest('.modal').classList.remove('on'));
+ $$('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('on')}));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){const m=$$('.modal.on').pop();if(m)m.classList.remove('on')}});
+ $('#adClose').onclick=closeAdmin;const P=$('#panes');['click','input','change'].forEach(ev=>P.addEventListener(ev,onAdmin));$('#tabs').addEventListener('click',onAdmin);
+ $('#fileIn').onchange=e=>importJSON(e.target.files[0]);
+ addEventListener('storage',e=>{if(e.key===KS){S=sanitizeSettings(loadJSON(KS));applyTheme();applyI18n()}if(e.key===KR){R=(loadJSON(KR)||[]).map(sanitizeReview).filter(Boolean);if(ADM.open)renderAdmin()}});
+ setInterval(()=>{const v=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();if(!isHex(v)||!S.colors||!isHex(S.colors.bg)){S.colors=guard(S.colors||BASE);applyTheme()}},5000);
+ setInterval(applyTheme,600000);
+}
+init();
+
+</script>
+</body>
+</html>
